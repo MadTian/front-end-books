@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>RegExp</title>
+</head>
+<body>
+  <script type="text/javascript">
+
+    var re = null,
+    i;
+    // alert(i);
+    // 字面量模式
+    for (i=0;i<10;i++){
+      re = /cat/g;
+      alert(re.test("catastrophe"));  //true
+    }
+
+    // for (i=0; i<10; i++){
+    //   re = new RegExp("cat","g");
+    //   alert(re.test("catastrophe"));  //true
+    // }
+  </script>
+</body>
+</html>

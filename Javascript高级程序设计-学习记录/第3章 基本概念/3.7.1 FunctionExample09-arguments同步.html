@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>arguments对象的值与对应命名参数的值保持同步</title>
+</head>
+<body>
+  <script type="text/javascript">
+  function doAdd(num1,num2){
+    arguments[1] = 10;
+    alert(arguments[0]+num2);
+  }
+  doAdd(5,20);   //15
+  
+  doAdd(10,30);  //20
+  </script>
+</body>
+</html>

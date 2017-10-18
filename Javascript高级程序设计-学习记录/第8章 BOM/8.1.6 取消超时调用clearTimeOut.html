@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>取消超时调用clearTimeout</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // 调用setTimeout()之后，该方法会返回一个数值ID，表示超时调用。
+    // 该ID是计划执行代码的唯一标识符，可以通过它来取消超时调用
+    var timeoutId = setTimeout(function(){
+      alert('Hello world');
+    }, 1000);
+
+    // 要取消尚未执行的超时调用计划，如下：
+    clearTimeout(timeoutId);
+
+
+  </script>
+</body>
+</html>

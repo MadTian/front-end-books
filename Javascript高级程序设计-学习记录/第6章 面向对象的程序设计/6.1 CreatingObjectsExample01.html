@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script type="text/javascript">
+  // 自定义对象最简单方式：创建一个Object实例
+  var person = new Object();
+  person.name = "Nicholas";
+  person.age = 29;
+  person.job = "Software Engineer";
+
+  person.sayName = function(){
+    alert(this.name);
+  }
+
+
+  // 自定义对象首选模式：对象字面量语法
+  var person = {
+    name:"Nicholas",
+    age:29,
+    job:"Software Engineer",
+
+    sayName:function(){
+      alert(this.name);
+    }
+  };
+</script>
+</body>
+</html>

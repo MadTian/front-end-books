@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>RegExp实例方法之exec()方法</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var text = "cat,bat,sat,fat";
+    var pattern2 = /.at/g;
+
+    var matches = pattern2.exec(text);
+    alert(matches.index);
+    alert(matches[0]);
+    alert(pattern2.lastIndex);
+
+  </script>
+</body>
+</html>

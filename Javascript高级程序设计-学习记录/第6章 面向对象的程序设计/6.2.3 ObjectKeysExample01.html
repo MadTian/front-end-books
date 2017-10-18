@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script type="text/javascript">
+  function Person(){
+  }
+
+  Person.prototype.name = "Nicholas";
+  Person.prototype.age = 29;
+  Person.prototype.job = "Software Engineer";
+  Person.prototype.sayName = function(){
+    alert(this.name);
+  };
+  
+  // ES5中的Object.keys()方法可以取得对象上所有可枚举的实例属性
+  var keys = Object.keys(Person.prototype);
+  alert(keys);  //"name age job sayName"
+
+  var p1 = new Person();
+  p1.name = "Rob";
+  p1.age = 31;
+  var p1keys = Object.keys(p1);
+  alert(p1keys);  //"name,age"
+  alert(p1keys[0]);  //"name"
+  
+</script>
+</body>
+</html>

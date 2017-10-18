@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>15.2.2 绘制矩形-2DFillRectExample01</title>
+  <style type="text/css">
+    body {
+      background-color: #000;
+    }
+    #drawing {
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="drawing" width="200" height="200">
+    <!-- 后备信息，如果浏览器不支持canvas元素就会显示这些信息 -->
+    Your browser doesn't support the canvas tag.  
+  </canvas>
+
+  <script type="text/javascript">
+    var drawing = document.getElementById("drawing");
+    var oDiv = document.getElementsByTagName("div")[0];
+    // alert(drawing);
+
+    // 取得绘图环境 getContext()方法
+    // 确定浏览器是否支持canvas元素
+    if(drawing.getContext) {
+      // 取得图像的数据URI
+      var context= drawing.getContext("2d");
+
+      // 绘制红色矩形:
+      /*1)与矩形有关的方法：
+      fillRect()、strokeRect()和clearRect(x,y,w,h)
+      */
+      /* 
+      2)填充和描边：
+      fillStyle（填充样式）和stokeStyle（轮廓样式）属性的值可以是：
+      字符串、渐变对象或模式对象，默认值#000000；
+      如果指定表示颜色的字符串值，可以指定CSS中颜色值的任何格式，包括：
+      颜色名、十六进制码、rgb、rgba、hsl或hsla
+      */
+      context.fillStyle = "#ff0000";
+      context.fillRect(10, 10, 50, 50);
+      context.strokeStyle = "blue";
+      context.strokeRect(9, 9, 52, 52);
+
+      // 绘制半透明的蓝色矩形
+      context.fillStyle = "rgba(0,0,255,0.5)";
+      context.fillRect(30, 30, 50, 50);
+      context.lineWidth = "3";
+      context.strokeStyle = "rgba(0,0,0,0.5)";
+      context.strokeRect(29,29,50,50);
+
+      // 在两个矩形重叠的地方清除一个小矩形
+      context.clearRect(40, 40, 10, 10);
+    }
+    
+
+
+  </script>
+</body>
+</html>

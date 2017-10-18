@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+
+  var person ={};
+  Object.defineProperty(person,"name",{
+    configurable:true,  
+    value:"Nicholas"
+  });
+  alert(person.name);  //Nicholas
+  
+  Object.defineProperty(person,"name",{
+    value:"Henry"
+  });
+  alert(person.name);  //Henry
+
+  // 可以多次调用...defineProperty()方法修改同一个属性
+</script>
+</body>
+</html>

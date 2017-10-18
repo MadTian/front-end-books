@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>getOwnPropertyNames()得到所有实例属性</title>
+</head>
+<body>
+  <script type="text/javascript">
+  // 若想得到所有实例属性，无论它是否可枚举，可使用getOwnPropertyNames()
+  function Person(){
+  }
+
+  Person.prototype.name = "Nicholas";
+  Person.prototype.age = 29;
+  Person.prototype.job = "Software Engineer";
+  Person.prototype.sayName = function(){
+    alert(this.name);
+  };
+
+  var keys = Object.getOwnPropertyNames(Person.prototype);
+  alert(keys);  //"constructor,name,age,job,sayName"
+
+  </script>
+</body>
+</html>

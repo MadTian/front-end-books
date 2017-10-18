@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>函数是对象，函数名是指针</title>
+</head>
+<body>
+  <script type="text/javascript">
+
+    function sum(num1,num2){
+      return num1+num2;
+    }
+    alert(sum(10,10));  //20
+
+    var anothersum = sum;
+    alert(anothersum(10,20));  //30
+
+    sum = null;
+    alert(anothersum(10,30));  //40
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>将构造函数当做函数</title>
+</head>
+<body>
+<script type="text/javascript">
+  
+   // 自定义构造函数
+  function Person(name,age,job) {
+  
+    this.name = name;
+    this.job = job;
+    this.age = age;
+    this.sayAge = function(){
+      alert(this.age);  
+    };
+  }
+  
+  // 构造函数与其他函数的唯一区别，在于调用方式不同。
+  // 构造函数毕竟也是函数，不存在定义构造函数的特殊语法
+  
+  // 任何函数，只要通过new操作符来调用，它就可以作为构造函数；
+  // 而任何函数，如果不通过new操作符调用，就是普通函数
+  
+  // Person()函数可通过下列任一种方式调用:
+  // 1.作为构造函数调用
+  var person = new Person("Nicholas",29,"Software Engineer");
+  person.sayAge();  //29
+
+  // 2.作为普通函数调用
+  Person("Greg",27,"Doctor");
+  window.sayAge();  //27
+
+  // 3.在另一个对象的作用域中调用
+  var o = new Object();
+  Person.call(o,"Kristen",25,"Nurse");
+  o.sayAge();  //25
+  
+</script>
+</body>
+</html>

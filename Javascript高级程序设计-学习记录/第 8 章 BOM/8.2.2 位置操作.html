@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>8.2.2 位置操作</title>
+</head>
+<body>
+  Enjoy 
+  <script type="text/javascript">
+    // 改变浏览器的位置
+    // 1）assign()方法：为其传递一个URL
+    // 该方法会立即打开新URL并在浏览器的历史记录中生成一条记录
+    // location.assign("http://www.wrox.com");
+
+    // 2）window.location 或location.href设置为一个URL值
+    // 这两种方法会隐式地调用assign()方法
+    // window.location = "http://www.wrox.com/";
+    location.href = "http://www.wrox.com/WileyCDA/";
+    
+    // 改变当前加载的页面
+    // 通过修改location对象的其他属性
+    // 假设初始URL为http://www.wrox.com/WileyCDA/
+    
+    // 将URL修改为"http://www.wrox.com/WileyCDA/#section1"
+    location.hash = "#section1";
+
+    // 将URL修改为"http://www.wrox.com/WileyCDA/?q=javascript"
+    location.search = "?q=javascript";
+
+    // 将URL修改为"http://www.yahoo.com/WileyCDA/"
+    location.hostname = "www.yahoo.com";
+
+    // 将URL修改为"http://www.yahoo.com/mydir"
+    location.pathname = "mydir";
+
+    // 将URL修改为"http://www.yahoo.com:8080/mydir"
+    location.port = 8080;
+
+    // 几点说明：
+    // 1）每次修改location的属性（hash除外），页面都会以新URL重新加载
+    /*2）浏览器的历史记录中就会生成一条新纪录，
+    因为用户单击“后退*按钮就会导航到前一页/
+    // IE8/Firefox1/Safari 2+/Opera 9+和Chrome中，
+    修改hash的值会在浏览器的历史记录中生成一条新纪录
+
+    // replace()：用户不能回到前一个页面；且不会在历史记录着生成新记录
+    
+
+  </script>
+</body>
+</html>

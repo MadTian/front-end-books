@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>构造函数的问题</title>
+</head>
+<body>
+
+ <script type="text/javascript">
+
+  /*
+  使用构造函数的主要问题：
+  每个方法都要在实例上重新创建一遍,
+  如下面的例子sayName()方法
+  */
+   /* function Person(name,age,job) {
+    
+      this.name = name;
+      this.job = job;
+      this.age = age;
+      this.sayAge = function(){
+        alert(this.age);  
+      };
+    }
+    
+    var person1 = new Person("Nicholas",29,"Software Engineer");
+    var person2 = new Person("Greg",27,"Doctor");
+    person1.sayAge();  //29    
+    person2.sayAge();  //27*/
+
+  // 解决方案：
+  // 把函数定义转移到构造函数外
+  function Person(name,age,job) {
+
+    this.name = name;
+    this.job = job;
+    this.age = age;
+    this.sayJob = sayJob;
+  }
+
+  function sayJob(){
+    alert(this.job);
+  }
+  var person1 = new Person("Nicholas",29,"Software Engineer");
+  person1.sayJob();  //Software Engineer
+  var person2 = new Person("Greg",27,"Doctor");
+  person2.sayJob();
+
+  alert(person1.sayJob == person2.sayJob);  //true
+  // 此种方式又带来了新问题：
+  // 在全局作用域中定义的函数只能被某个对象调用，让全局作用域名不副实
+  // 如果对象需要定义很多种方法，那么就要定义很多个全局函数
+
+  // 解决方案：6.2.3 原型模式↓
+  
+</script>
+</body>
+</html>

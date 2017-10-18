@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>5.5.4 函数内部属性</title>
+</head>
+<body>
+  <script type="text/javascript">
+
+  function outer(){
+    inner();
+  }
+
+  function inner(){
+    alert(arguments.callee.caller);
+  }
+  outer();
+  </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>字符串操作方法</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var stringValue = "hello ";
+
+    // concat()用于将一或多个字符串拼接起来，返回拼接得到的新字符串
+    var result1 = stringValue.concat("world");
+    alert(result1);  //"hello world"
+    alert(stringValue);  //hello  stringValue的值保持不变
+
+    // 该方法可接受任意多个参数
+    var result2 = stringValue.concat("world","!");
+    alert(result2);  //"hello world!"
+    alert(stringValue);  //hello 
+  </script>  
+</body>
+</html>

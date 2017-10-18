@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>超时调用setTimeout方法</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // 传递字符串可能导致性能损失，所以不建议传递字符串！
+    setTimeout("alert('Hello world')", 1000);
+
+    // 推荐的调用方式
+    setTimeout(function(){
+      alert('Good evening');
+    }, 500);
+
+  </script>
+</body>
+</html>

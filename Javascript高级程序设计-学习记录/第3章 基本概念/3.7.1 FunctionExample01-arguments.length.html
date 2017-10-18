@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>arguments.length的运用</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // 让函数接收任意个参数并分别实现适当的功能
+    function doAdd(){
+      if(arguments.length ==1){
+        alert(arguments[0] + 10);
+      }else if(arguments.length == 2){
+        alert(arguments[0] + arguments[1]);
+      }
+    }
+
+    doAdd(11);  //21
+    doAdd(2,3);  //5
+  </script>
+</body>
+</html>

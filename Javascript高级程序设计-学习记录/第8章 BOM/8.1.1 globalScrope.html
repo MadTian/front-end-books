@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>全局作用域</title>
+</head>
+<body>
+  <script type="text/javascript">
+
+    var age = 29;
+    alert(window.age);  //29
+    function sayAge(){
+      alert(this.age);
+    }
+    sayAge();  //29
+    alert(window.sayAge);  //返回sayAge()-->function(){}
+    window.sayAge();  //29
+  </script>
+</body>
+</html>

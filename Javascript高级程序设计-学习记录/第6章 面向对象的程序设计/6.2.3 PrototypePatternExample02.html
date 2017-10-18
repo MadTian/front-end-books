@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>屏蔽原型中的属性</title>
+</head>
+<body>
+<script type="text/javascript">
+  function Person(){
+  }
+
+  Person.prototype.name ="Nicholas";
+  Person.prototype.age =29;
+  Person.prototype.job ="Software Engineer";
+  Person.prototype.sayName = function(){
+    alert(this.name);
+  };
+
+  var person1 = new Person();
+  var person2 = new Person();
+  person1.name = "Greg";
+  alert(person1.name);  //Greg
+  alert(person2.name);  //Nicholas
+
+  person2.age = null;
+  alert(person2.age);  //null
+
+  /*该例搜索过程：
+  1）当在alert()中访问person1.name是，需要读取它的值，因此就会在实例上搜索一个名为name的属性。
+  这个属性确实存在，就返回它的值而不必再搜索原型了。
+  2）当以同样的方式访问person2.name时，并没有在实例中发现该属性，因此就会继续搜索原型，结果就在那里找到了name属性*/
+
+  当为对象实例添加一个属性时，这个属性就会屏蔽原型对象中保存的同名属性；
+  换句话，添加这个属性只会阻止访问原型中的同名属性，但不会修改那个属性。
+  即使将这个属性设置为null，也只会在实例中设置这个属性。
+
+  // delete操作符则会完全删除实例属性，从而能重新访问原型中的属性
+  delete person1.name;
+  console.log(person1.name);  //Nicholas --来自原型
+
+</script>
+</body>
+</html>

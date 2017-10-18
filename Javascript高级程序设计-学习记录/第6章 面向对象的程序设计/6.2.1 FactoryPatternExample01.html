@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+
+  //工厂方式 : 封装函数(面向对象中的封装函数)
+
+  function createPerson(name,age,job){
+    //1.原料
+    var o = new Object();
+    //2.加工
+    o.name = name;
+    o.age = age;
+    o.job = job;
+    o.sayName = function(){
+      alert(this.name);
+    };
+    //3.出厂
+    return o;
+  }
+
+  var person1 = createPerson("Nicholas",29,"Software Engineer");
+  var person2 = createPerson("Greg",27,"Doctor");
+  // alert(person1.name);  //Nicholas
+  // alert(person2.job);   //Doctor
+  person1.sayName();  //Nicholas
+
+  // createPerson()能够根据接收的参数来构建一个包含所有必要信息的Person对象。
+  // 可以无数次的调用这个函数，而每次它都会返回一个包含三个属性一个方法的对象。
+  // 工厂模式虽然解决了创建多个相似对象的问题，
+  // 但却没有解决对象识别的问题（即怎样知道一个对象的类型）
+  // 随之，构造函数模式出现了
+
+</script>
+</body>
+</html>

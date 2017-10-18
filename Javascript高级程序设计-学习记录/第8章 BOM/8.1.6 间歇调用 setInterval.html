@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>间歇调用 setInterval</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var num=0;
+    var max=10;
+    var intervalId = null;
+
+    function incrementNumber(){
+      num++;
+      // 如果执行次数达到了max设定的值,则取消后续尚未执行的调用
+      if(num == max){
+        clearInterval(intervalId);
+        alert('Well done');
+      }
+      // alert(num);
+    }
+    intervalId = setInterval(incrementNumber, 500);
+  </script>
+</body>
+</html>

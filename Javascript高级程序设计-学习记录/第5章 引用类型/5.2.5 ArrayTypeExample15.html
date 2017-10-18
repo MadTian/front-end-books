@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>重排序方法</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // 升序
+    function compare01(value1,value2){
+
+      if(value1<value2){
+        return -1;
+      }else if(value1>value2){
+        return 1;
+      }else{
+        return 0;
+      }
+
+    }
+
+    var values = [0,1,5,15,10];
+    values.sort(compare01);
+    alert(values);  //0,1,5,10,15
+
+    // 降序
+    function compare02(value1,value2){
+
+      if(value1<value2){
+        return 1;
+      }else if(value1>value2){
+        return -1;
+      }else{
+        return 0;
+      }
+
+    }
+
+    var values = [0,1,5,15,10];
+    values.sort(compare02);
+    alert(values);  //15,10,5,1,0    
+    
+    // 对于数值型或者其valueOf()方法可以返回数值类型的对象类型，可以使用更简单的比较函数
+    // 降序
+    function compare03(value1,value2){
+      return value2 - value1;
+    }
+    var values = [0,1,5,15,10];
+    values.sort(compare03);
+    alert(values);  //15,10,5,1,0
+
+    function compare04(value1,value2){
+      return value1 - value2;
+    }
+    var values = [0,3,5,25,18];
+    values.sort(compare04);
+    alert(values);  //15,10,5,1,0
+  </script>
+</body>
+</html>

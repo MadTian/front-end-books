@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Window.open()鏂规硶</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // window.open("http://www.baidu.com/","topFrame","height=400,width=400,top=10,left=10,resizable=yes");
+
+    var wroxWin = window.open('http://www.wrox.com/','wroxWindow','height=400,width=400,top=10,left=10,resizable=yes');
+
+    //调整大小
+    wroxWin.resizeTo(1000, 500);
+
+    // 移动位置
+    wroxWin.moveTo(100, 100);
+
+    // 调用close方法还可以关闭新打开的窗口
+    // wroxWin.close();
+    
+    // 新创建的window对象有一个opener属性，其中保存着打开它的原始窗口对象
+    // alert(wroxWin.opener);
+    
+    wroxWin.opener = null;  //直接打开新窗口
+  </script>
+</body>
+</html>

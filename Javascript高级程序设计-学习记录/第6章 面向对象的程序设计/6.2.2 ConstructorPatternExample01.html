@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+  // 原生构造函数
+  var o = new Object();
+  var arr = new Array();
+  // 自定义构造函数
+  function Person(name,age,job) {
+  
+    this.name = name;
+    this.job = job;
+    this.age = age;
+    this.sayAge = function(){
+      alert(this.age);  
+    };
+  }
+  
+  var person1 = new Person("Nicholas",29,"Software Engineer");
+  var person2 = new Person("Greg",27,"Doctor");
+  person1.sayAge();  //Nicholas
+
+  //此例子中，person1和person2分别保存着Person的一个不同的实例。
+  // 这两个对象都有一个constructor(构造函数)属性，该属性指向Person,如下：
+  // alert(person1.constructor == Person);  //true
+  // alert(person2.constructor == Person);  //true
+  
+  // 以这种方式创建函数，会导致不同的作用域链和标识符解析
+  alert(person1.sayAge == person2.sayAge);  //false
+</script>
+  <!--
+  此例子中，Person()函数取代了上例子中createPerson()函数。
+  与createPerson()不同之处：
+  1）没有显示地创建对象；
+  2）直接将属性和方法赋给了this对象
+  3）没有return语句
+
+  注意点：
+  1)为了区别于ECMAScript中的其他函数，构造函数名始终以一个大写字母开头，如Person；
+  而非构造函数则应该以一个小写字母开头，如createPerson
+  2)要创建Person的实例，必须使用new操作符
+
+  调用自定义构造函数的4个步骤：
+  1）创建一个新对象；
+  2）将构造函数的作用域赋给新对象(因此this就指向了新对象)
+  3）执行构造代码中的代码(为这个新对象添加属性)
+  4）返回新对象
+
+  构造函数模式胜过工厂模式的地方：
+  创建自定义的函数意味着将来可以将它的实例标识为一种特定的类型。
+
+    -->
+</body>
+</html>

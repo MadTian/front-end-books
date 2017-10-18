@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>检测弹出窗口是否被屏蔽</title>
+</head>
+<body>
+  <script type="text/javascript">
+
+    /*弹出窗口屏蔽程序：
+    1，大多数浏览器都内置有弹出窗口屏蔽程序，
+    而没有内置此类程序的浏览器，可以安装Yahoo!Toolbar等带有内置屏蔽程序的实用工具。
+    2，在弹出窗口被屏蔽时就该考虑两种可能性：
+      1）如果是内置的，那么window.open()很可能会返回null。
+      此时只要检测这个返回的值，即可确定弹出窗口是否被屏蔽了。
+      2）如果是浏览器扩展或其他程序屏蔽的，那么window.open()通常会抛出一个错误。
+      因此，若想准确地检测弹出窗口是否被屏蔽，必须在检测返回值的同时，将对window.open()
+      的调用封装在一个try-catch中，如下：*/
+
+    // 内置屏蔽检测方式
+    // var wroxWin = window.open('http://www.wrox.com/','_blank');
+    if(wroxWin == null){
+      // alert('The popup was blocked!');
+    }
+
+    var blocked = false;
+
+    try {
+
+      var wroxWin = window.open('http://www.wrox.com/','_blank');
+      if(wroxWin == null){
+        blocked =true;
+      }
+    } catch(ex){
+      blocked = true;
+    }
+
+    if(blocked){
+      alert('The popup was blocked!');
+    }
+
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Window Position Example 窗口位置</title>
+</head>
+<body>
+  <script type="text/javascript">
+
+    // 关于窗口位置，各个浏览器存在很大差异
+    var leftPos = (typeof window.screenLeft == 'number') ? window.screenLeft : window.screenX;
+    // alert(leftPos);
+
+    var topPos = (typeof window.screenLeft == 'number') ? window.screenTop : window.screenY;
+    // alert(topPos);
+
+    // alert(window.screenX);  //IE9以下 undefined;IE9以上及火狐 窗口最大化时 -8 
+    // alert(window.screenY);  //Chrome 窗口最大化时 0
+    
+    // moveTo(x, y)接收的是新位置的x和y坐标值
+    // window.moveTo(200, 300);
+
+    // moveBy(dx, dy)接收的是在水平和垂直方向上移动的像素数
+    window.moveBy(-50, 0);
+  </script>
+</body>
+</html>

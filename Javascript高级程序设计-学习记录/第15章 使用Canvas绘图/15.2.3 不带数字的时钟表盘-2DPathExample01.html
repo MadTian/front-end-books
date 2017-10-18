@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>15.2.3 不带数字的时钟表盘-2DPathExample01.html</title>
+<!--   <style type="text/css">
+    body {
+      background-color: #000;
+    }
+    #drawing {
+      background-color: red;
+      margin: 100px 500px;
+    }
+  </style> -->
+</head>
+<body>
+  <canvas id="drawing" width="200" height="200">
+    Your browser doesn't support the canvas tag.
+  </canvas>
+
+  <script type="text/javascript">
+    var drawing = document.getElementById("drawing");
+
+    if(drawing.getContext) {
+      var context = drawing.getContext("2d");
+
+      // 开始路径
+      context.beginPath();
+
+      context.strokeStyle = "yellowgreen";
+      context.lineWidth = "3";
+      // 绘制外圆
+      context.arc(100,100,99,0,2 * Math.PI, false);
+
+
+      // 绘制内圆
+      context.moveTo(194,100);
+      context.arc(100,100,94,0,2 * Math.PI,false);
+
+      // context.strokeStyle = "red";
+
+      // 绘制分针
+      context.moveTo(100,100);
+      context.lineTo(100,18);
+
+      // 绘制时针
+      context.moveTo(100,100);
+      context.lineTo(35,100);
+
+      // 描边路径
+      context.stroke();
+
+      // 疑问？如何为外圆和内圆分别设置不同颜色的描边
+      
+      // 绘制数字12
+      context.font = "bold 14px Arial";
+      context.textAlign = "center";
+      context.textBaseLine = "middle";
+      context.fillText("12", 100,17);
+
+    }
+
+  </script>
+</body>
+</html>

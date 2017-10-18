@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>原型与in操作符</title>
+</head>
+<body>
+<script type="text/javascript">
+  // 有两种方式使用in操作符：单独使用和在for-in循环中使用。
+  
+  // 单独使用时，in操作符会在通过对象能够访问给定属性时返回true,
+  // 无论该属性是在实例中还是原型中
+  function Person(){}
+  Person.prototype.name = "Nicholas";
+  Person.prototype.age = 29;
+  Person.prototype.job = "Software Engineer";
+  Person.prototype.sayName = function(){
+    alert(this.name);
+  };
+
+  var person1 = new Person();
+  var person2 = new Person();
+
+  // alert(person1.hasOwnProperty("name"));  //false
+  // alert("name" in person1);  //true
+
+  person1.name ="Greg";
+  // alert(person1.name);  //Greg  --来自实例
+  // alert(person1.hasOwnProperty("name"));  //true
+  // alert("name" in person1);  //true
+
+  // alert(person2.name);  //Nicholas --来自原型
+  // alert(person2.hasOwnProperty("name"));  //false
+  // alert("name" in person2);  //true
+
+  delete person1.name;
+  alert(person1.name);  //Nicholas  --来自原型
+  alert(person1.hasOwnProperty("name"));  //false
+  alert("name" in person1);  //true
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>5.6.1 Boolean类型</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // Boolean对象在ECMAScript中的用处不大，因其经常造成人们的误解
+    // 最常见问题在布尔表达式中使用Boolean对象
+    var falseObject = new Boolean(false);
+    var result = falseObject && true;
+
+    // 在布尔运算中，false && true等于false
+    // 可示例中的代码是对falseObject而不是对它的值(false)进行求值
+    // 布尔表达式中的所有对象都会被转换为true
+    alert(result);  //true
+
+    
+    var falseValue = false;
+    result = falseValue && true;
+
+    alert(result);  //false
+
+    // 基本类型与引用类型的布尔值还有两个区别
+    // 1）typeof 操作符对引用类型返回"object",对基本类型返回"boolean"
+    alert(typeof falseObject);  //object
+    alert(typeof falseValue);  //boolean
+
+    // 2)Boolean对象是Boolean类型的实例，故使用instanceof 操作符测试
+    // Boolean对象会返回true,基本类型的布尔值会返回false
+    alert(falseObject instanceof Boolean); //true
+    alert(falseValue instanceof Boolean); //false
+
+  </script>
+</body>
+</html>

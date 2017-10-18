@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>15.2.2 绘制矩形--2DStrokeRectExample01</title>
+</head>
+<body>
+  <canvas id="drawing" width="200" height="200">
+    <!-- 后备信息，如果浏览器不支持canvas元素就会显示这些信息 -->
+    Your browser doesn't support the canvas tag.  
+  </canvas>
+  <script type="text/javascript">
+    var drawing = document.getElementById("drawing");
+
+    // 确定浏览器是否支持canvas元素
+    if(drawing.getContext) {
+      // 绘图环境
+      var context = drawing.getContext("2d");
+
+      // 绘制红色描边矩形
+      /*1)lineWidth属性：描边线条的宽度
+      2）lineCap属性：线条末端的形状是平头、圆头或是方头("butt"、"round"、"square")
+      3)lineJoin属性：控制线条相交的方式是圆交、斜交还是斜接("round"/"bevel"/"miter")*/
+      context.lineWidth = "5";
+      // context.lineCap = "round";
+      context.lineJoin = "round";
+      // context.lineJoin = "miter";
+      context.strokeStyle = "#ff0000";
+      context.strokeRect(10, 10, 50, 50);
+
+      // 绘制半透明的蓝色描边矩形
+      context.lineWidth = "3";
+      context.strokeStyle = "rgba(0,0,255,0.5)";
+      context.strokeRect(30,30,50,50);
+      
+    }
+
+  </script>
+</body>
+</html>

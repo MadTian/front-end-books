@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>15.1 Canvas基本用法--2DDataUrlExample01</title>
+  <style type="text/css">
+   /* body {
+      background-color: #000;
+    }
+    #drawing {
+      background-color: #fff;
+    }*/
+  </style>
+</head>
+<body>
+  <canvas id="drawing" width="200" height="200">
+    <!-- 后备信息，如果浏览器不支持canvas元素就会显示这些信息 -->
+    A drawing of something.  
+  </canvas>
+  <script type="text/javascript">
+    // 取得画布中一幅PNG格式的图像
+    var drawing = document.getElementById("drawing");
+
+    // 取得绘图上下文 getContext()方法
+    // 确定浏览器是否支持canvas元素
+    if(drawing.getContext) {
+      // 取得图像的数据URI
+      var imgURI = drawing.toDataURL(img/png);
+
+      // 显示图像
+      var image = document.createElement("img");
+      image.src = imgURI;
+      document.body.appendChild(image);
+    }
+    
+
+  </script>
+</body>
+</html>

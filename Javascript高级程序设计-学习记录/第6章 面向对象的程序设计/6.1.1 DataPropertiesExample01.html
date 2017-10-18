@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>6.1.1 属性类型之数据属性</title>
+</head>
+<body>
+<script type="text/javascript">
+
+  var person = {};
+  // 要修改属性默认的特性，须使用Object.defineProperty()方法
+  // 这个方法接收三个参数：属性所在的对象、属性名、描述符对象
+  // 描述符对象的属性须是：Configurable、enumerable、writable和value
+  Object.defineProperty(person,"name",{
+    writable:false, //writable:表示能否修改属性的值；设为false：表示只读
+    value:"Nicholas"
+  });
+
+  alert(person.name);  //Nicholas
+  person.name = "Greg";
+  alert(person.name);  //Nicholas
+
+  // 这个例子创建了一个名为name的属性，它的值是可读的(writable:false).
+  // 这个属性的值是不可修改的，如果尝试为他指定新值，非严格模式下，赋值操作会被忽略；
+  // 严格模式下，赋值操作将会导致错误。
+</script>
+</body>
+</html>

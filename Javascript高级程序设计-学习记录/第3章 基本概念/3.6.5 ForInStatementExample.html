@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>for-in语句</title>
+</head>
+<body>
+<script type="text/javascript">
+  var num = 0;
+  for (var propName in window){
+    num++;
+    document.body.innerHTML += num +' ' + propName +"<br>";
+  }
+</script>
+</body>
+</html>
