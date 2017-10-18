@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>5.4.3 使用对象</title>
+</head>
+<body>
+  <script type="text/javascript">
+    //1. 读取和修改属性值
+    var myData = {
+      name: "Adam",
+      weather: "sunny"
+    };
+    myData.name = "Joe";
+    // myData.weather ="raining";
+    myData["weather"] = "snowy";
+
+    // document.write("Hello " + myData.name+".");
+    // document.write("It is "+myData.weather+".");
+
+    // []可用变量表示属性名
+    var propName="weather";
+    myData[propName] ="raining";
+    // document.write("It is "+myData[propName]);
+
+    // 2.枚举对象属性
+    var myData = {
+      name: "Adam",
+      weather: "sunny",
+      printMessages: function(){
+        document.writeIn("TMD,你是 "+ this.name+".");
+        document.writeIn("Today is "+ this.weather +".");
+      }
+    };
+     for(var prop in myData){
+      document.write( prop + ":" + myData[prop] + "<br>");
+     }
+
+     // 3.增删对象属性和方法
+     var myData = {
+      name: "Adam",
+      weather: "sunny"
+    };
+
+    //1) 为对象添加新属性
+    myData.dayOfWeek = "Monday";
+    // alert(myData.dayOfWeek);
+
+    //2) 为对象添加新方法
+    myData.sayHello = function(){
+      document.write("Hello");
+    }
+
+   
+    // myData.sayHello();
+    
+    /*for(prop in myData){
+      alert(prop);  // name weather dayOfWeek sayHello
+    }*/  
+
+    // 3)删除对象的属性
+    /*delete myData.name;
+    delete myData["weather"];
+    delete myData.sayHello;*/
+
+    /*for(prop in myData){
+      alert(prop);  //dayOfWeek
+    }*/
+
+    // 4）判断对象是否具有某个属性
+    var hasName = "name" in myData;
+    document.write("HasName: " + hasName + "<br>"); //HasName: true
+    var hasDate = "date" in myData;
+    document.write("HasDate: " + hasDate);  //HasDate: false
+  </script>
+  
+</body>
+</html>

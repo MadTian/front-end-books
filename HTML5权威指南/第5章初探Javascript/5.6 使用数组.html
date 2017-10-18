@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>5.6 使用数组</title>
+</head>
+<body>
+  <script type="text/javascript">
+
+    // 创建和填充数组
+    // 原生构造函数
+    var myArray = new Array();
+    myArray[0] = 100;
+    myArray[1] = "Adam";
+    myArray[2] = true;
+    // alert(myArray);  //[100,"Adam",true]
+
+    // 使用数组字面量
+    var myArray = [100,"Adam",true];
+
+    //1） 读取和修改数组内容
+    
+    // 读取指定索引位置的数组元素值
+    document.write("Index 0: " + myArray[0] + "<br>");  //Index 0: 100
+
+    //2） 修改数组内容
+    myArray[0] = "Tuesday";
+    document.write("Index 0: " + myArray[0]+"<br>");  //Index 0: Tuesday
+
+    // 3）枚举数组内容
+    for(var i=0;i<myArray.length;i++){
+      document.write("Index "+ i + ":  "+ myArray[i] + "<br>");  //Index 0: Tuesday  Index 1: Adam Index 2: true
+    }
+  </script>
+</body>
+</html>

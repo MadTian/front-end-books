@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>5.8 比较undefined和null</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var myData = {
+      name: "Adam",
+      weather: "sunny"
+    };
+
+    // 读取未赋值的变量或试图读取对象没有的属性时得到的就是undefined值
+    // document.write("Prop: " + myData.doesntexist);  //Prop: undefined
+
+    // null:用于表示赋了值但该值不是一个有效的object,string,number和boolean值
+    var myData1 = {
+      name: "Adam"
+    }
+    document.write("01 Var: " + myData1.weather + "<br>");  //01 Var: undefined
+    document.write("02 Prop: " + ("weather" in myData1) +"<br>");  //02 Prop: false
+
+    myData1.weather = "sunny";
+    document.write("03 Var: " + myData1.weather + "<br>");  //03 Var: sunny
+    document.write("04 Prop: " + ("weather" in myData1) + "<br>");  //04 Prop: true
+
+    myData1.weather = null;
+    document.write("05 Var: " + myData1.weather + "<br>");  //05 Var: null
+    document.write("06 Prop: " + ("weather" in myData1) + "<br>");  //06 Prop: true 对象依然具有该属性
+
+    // 5.8.1 检查变量或属性是否为undefined或null
+    var myData2 = {
+      name: "Adam",
+      city: null
+    };
+    if(!myData2.name){
+      document.write("name IS null or undefined ");
+    } else {
+      document.write("name is NOT null or undefined. ");  //name is NOT null or undefined
+    }
+    if(!myData2.city){
+      document.write("city IS null or undefined "+"<br>");  // city IS null or undefined
+    } else {
+      document.write("city is NOT null or undefined" +"<br>");  
+    }
+
+    // 5.8.2 区分null和undefined
+    
+    // 若想同等对待null和undefined值，应该使用相等运算符(==),让JS进行类型转换
+    // 若要区分两者，则应使用等同运算符（===）
+    var firstVal = null;
+    var secondVal;
+
+    var equality = firstVal == secondVal;
+    var identity = firstVal === secondVal;
+
+    document.write(equality+"<br>");  //true
+    document.write(identity+"<br>");  //false
+  </script>
+</body>
+</html>

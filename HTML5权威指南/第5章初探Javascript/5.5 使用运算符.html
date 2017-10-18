@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>5.5 使用运算符</title>
+</head>
+<body>
+  <script type="text/javascript">
+    //5.5.1 相等和等同运算符
+    
+    // 相等运算符
+    // 相等~会尝试将操作数转换为同一类型以便判断是否相等，不管其类型
+    var firstVal = 5;
+    var secondVal = "5";
+
+    if(firstVal == secondVal){
+      // alert("They are the same");  //"They are the same"
+    } else {
+      alert("They are NOT the same");
+    }
+
+    // 等同运算符
+    if(firstVal === secondVal){
+      document.write("They are the same");  
+    } else {
+      // document.write("They are NOT the same");  //They are NOT the same
+    }
+
+    // JS基本类型的相等和等同测试
+    // 值的比较
+    var myData1 = 5;
+    var myData2 = "5";
+    var myData3 = myData2;
+
+    var test1 = myData1 == myData2;
+    var test2 = myData2 == myData3;
+    var test3 = myData1 === myData2;
+    var test4 = myData2 === myData3;
+
+    document.write("Test1: "+ test1 + "<br>");  //Test1: true
+    document.write("Test2: "+ test2 + "<br>");  //Test2: true
+    document.write("Test3: "+ test3 + "<br>");  //Test3: false
+    document.write("Test4: "+ test4 + "<br>");  //Test4: true
+
+    // JS对象的比较：引用的比较
+    var myData1 = {
+      name: "Adam",
+      weather: "sunny"
+    };
+
+    var myData2 = {
+      name: "Adam",
+      weather: "sunny"
+    }; 
+
+    var myData3 = myData2;
+
+    var test1 = myData1 == myData2;
+    var test2 = myData2 == myData3;
+    var test3 = myData1 === myData2;
+    var test4 = myData2 === myData3;
+
+    document.write("Test5: "+ test1 + "<br>");  //false 
+    document.write("Test6: "+ test2 + "<br>");  //true
+    document.write("Test7: "+ test3 + "<br>");  //false
+    document.write("Test8: "+ test4 + "<br>");  //true
+  </script>
+</body>
+</html>

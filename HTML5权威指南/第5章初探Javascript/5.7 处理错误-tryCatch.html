@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>5.7 处理错误</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // 异常处理
+    try {
+      var myArray;
+      for(var i=0;i < myArray.length;i++){
+        document.write("Index " + i +": "+ myArray[i]);
+      }
+    } catch(e){
+      console.log(e);  //TypeError: Cannot read property 'length' of undefined
+    }
+
+    // 如果没有发生错误，那么这些语句将会正常执行，catch字句会被忽略
+    // 如果有错误发生，那么try字句中的执行将停止，控制器转移到catch语句中
+    
+    // 如果不管是否发生错误，都执行一些语句，可加上一条finally语句
+    try {
+      var myArray;
+      for(var i=0;i < myArray.length;i++){
+        document.write("Index " + i +": "+ myArray[i]);
+      }
+    } catch(e){
+      document.write(e + "." + "<br>");  //TypeError: Cannot read property 'length' of undefined
+    } finally {
+      document.write("Statements here are always executed");
+    }
+
+  </script>
+</body>
+</html>

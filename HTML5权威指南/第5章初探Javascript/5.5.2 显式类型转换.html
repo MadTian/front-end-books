@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>5.5.2 显示类型转换</title>
+</head>
+<body>
+  <script type="text/javascript">
+
+    // 显示类型转换
+
+    // 字符串连接符（+）优先级高于加法运算符（+）
+    // 且字符串连接运算符会将计算结果进行类型转换
+    
+    var myData1 = 5+5;
+    var myData2 = 5+"5";
+
+    // alert(myData1);  //10
+    // alert(myData2);  //55
+
+    // 1.将数值转换为字符串
+    var myData3 = (3).toString() + String(3);
+    // alert(myData3);  //33
+
+    // 2.将字符串转换为数值
+    var firstVal = "5";
+    var secondVal = "5";
+
+    var result = Number(firstVal) + Number(secondVal);
+    alert(result);  //10
+  </script>
+</body>
+</html>

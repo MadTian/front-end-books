@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>5.4.2 使用对象</title>
+</head>
+<body>
+  <script type="text/javascript">
+
+    // 创建对象--原生构造函数
+    var myData = new Object();
+    myData.name = "Adam";
+    myData.weather = "sunny";
+
+    document.writeln("Hello "+ myData.name+".");
+    document.write("Today is "+myData.weather+"." +"<br>");
+
+    // 对象字面量
+    var myData = {
+      name: "Adam",
+      weather: "sunny",
+      // 将函数用作方法
+      printMessages: function(){
+        // 在方法内部使用对象属性时要用到this关键字
+        document.writeln("Hello "+this.name + "."+"<br>");
+        document.writeln("Today is " + this.weather +".");
+      }
+    };
+    document.write("Hello " + myData.name+".");
+    document.write("Today is "+myData.weather+"."+"<br>");
+    myData.printMessages();
+  </script>
+</body>
+</html>

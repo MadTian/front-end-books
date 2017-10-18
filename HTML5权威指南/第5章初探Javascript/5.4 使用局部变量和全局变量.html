@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>5.4 使用局部变量和全局变量</title>
+</head>
+<body>
+  <script type="text/javascript">
+
+    var myGlobalVar = "apples";
+
+    function myFunc(name){
+      var myLocalVar = "sunny";
+      return("Hello "+ name + ". Today is " + myLocalVar + ".");
+    };
+    document.write(myFunc("Adam")); //Hello Adam. Today is sunny. 
+
+  </script>
+  <script type="text/javascript">
+    document.write("I like "+ myGlobalVar);  //I like apples
+  </script>
+</body>
+</html>
