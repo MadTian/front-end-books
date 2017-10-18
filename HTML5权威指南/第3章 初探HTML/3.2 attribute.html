@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>3.2 使用元素属性</title>
+</head>
+<body>
+  <!-- 3.2 使用元素属性 -->
+  I like <a href="/apples.html">apples</a> and oranges. <br /><br />
+
+  <!-- 3.2.1 一个元素应用多个属性，属性间以一个或多个空格分隔即可 -->
+  <!-- 属性的顺序未做要求 -->
+  I like <a href="/apples.html" class="link" id="firstlink">apples</a> and oranges.
+  <br /><br />
+
+  
+  Enter your name: <input type="text" /><br /><br />
+  <!-- 3.2.2 使用布尔属性 -->
+  <!-- 布尔属性不需设定值，只需将属性名添加到元素中即可 -->
+  <!-- 添加disabled 可以阻止用户输入数据 -->
+  Enter your name: <input type="text" disabled /><br /><br />
+
+  <!-- 布尔属性的小古怪：
+  它以本来存在而不是用户为其设定的值为元素配置。
+   -->
+   <!-- 为布尔属性指定一个空字符串 或 属性名字符串作为其值亦可 -->
+  Enter your name: <input type="text" disabled="" /><br /><br />
+  Enter your name: <input type="text" disabled="disabled" /><br /><br />
+
+  <!-- 3.2.3 使用自定义属性/扩展属性 -->
+  <!-- 必须以data-开头 -->
+  Enter your name：<input type="text" data-creator= "adam" data-purpose="collection" />
+</body>
+</html>

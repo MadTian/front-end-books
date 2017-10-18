@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>3.5.13 tabindex属性</title>
+</head>
+<body>
+  <form>
+    <!-- HTML页面上的键盘焦点可以通过Tab键在各元素之间切换 -->
+    <label>Name: <input type="text" name="name" tabindex="1" /></label>
+    <p/>
+    <!-- 设置为-1不会在用户按下Tab键后被选中 -->
+    <label>City: <input type="text" name="city" tabindex="-1" /></label>
+    <p/>
+    <label>Country: <input type="text" name="country" tabindex="2" /></label>
+    <p/>
+    <input type="submit" tabindex="3" />
+  </form>
+</body>
+</html>

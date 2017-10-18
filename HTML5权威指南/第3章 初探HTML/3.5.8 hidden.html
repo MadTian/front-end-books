@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>3.5.8 hidden 属性</title>
+</head>
+<body>
+  <button>Toggle</button>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>City</th>
+    </tr>
+    <tr>
+      <td>Adam Freeman</td>
+      <td>London</td>
+    </tr>
+    <tr class="toggle" hidden>
+      <td>Joe Smith</td>
+      <td>New York</td>
+    </tr>
+    <tr>
+      <td>Anne Jones</td>
+      <td>Paris</td>
+    </tr>
+  </table>
+  <script type="text/javascript">
+
+    var elem = document.getElementsByClassName("toggle");
+    // alert(elem);
+    elem.onclick=function(){
+      var elem = document.getElementsByClassName("toggle");
+      if(elem.hasAttribute("hidden")) {
+        elem.removeAttribute("hidden");
+      }else{
+        elem.setAttribute("hidden","hidden");
+      }
+
+    }
+
+  </script>
+</body>
+</html>

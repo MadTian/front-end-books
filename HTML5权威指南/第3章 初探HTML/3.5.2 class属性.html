@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>3.5.2 Class属性</title>
+  <style type="text/css">
+    /*代码清单3-16 定义依靠类起作用的样式*/
+    .class2 {
+      background-color: grey;
+      color:white;
+      padding: 5px;
+      margin: 2px;
+    }
+  .class1 {
+    font-size: x-large;  /*绝对字体尺寸。根据对象字体进行调整。较大*/
+  }
+  </style>
+</head>
+<body>
+  <!-- 一个元素可以添加多个类别 用空格分隔 -->
+  <a class="class1 class2" href="http://apress.com">Apress web site</a>
+  <p />
+  <a class="class2 otherclass" href="http://w3c.org">W3C web site</a>
+
+  <!-- 代码清单3-17 在脚本中使用class属性 -->
+  <script type="text/javascript">
+    var elems =document.getElementsByClassName("otherclass");
+
+    for(i=0;i<elems.length;i++){
+      var x = elems[i];
+      x.style.border = "thin solid black";
+      x.style.backgroundColor = "white";
+      x.style.color = "black";
+    }
+
+  </script>
+</body>
+</html>
