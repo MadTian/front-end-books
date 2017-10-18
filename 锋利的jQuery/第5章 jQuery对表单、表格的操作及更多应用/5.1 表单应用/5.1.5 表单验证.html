@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>5.1.5 表单验证</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <script type="text/javascript" src="../../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      // class属性为"required"的文本框是必填项，需要其与其他非必填项加以区分，
+      // 在文本框后面追加一个红色的小星星标识
+      $("form :input.required").each(function(index, el) {
+        var $required = $("<strong class='high'>*</strong>");  //创建元素
+        $(this).parent().append($required);  //将它追加到文档中
+      });
+
+      // 一、验证表单元素
+      // 判断当前失去焦点的元素是‘用户名’还是‘邮箱’
+      $("form :input").blur(function(event) {
+        var $parent = $(this).parent();
+        // 由于每次在元素失去焦点后，都会创建一个新的提醒元素，将它追加到文档中，出现多次的提醒信息
+        // 需要再创建提醒元素之前，将当前元素以前的提醒元素都删除
+        $parent.find(".formtips").remove();
+        // 1.验证用户名
+        if( $(this).is('#username') ){
+          // 判断元素的值的长度是否小于6,
+          if( this.value = ''|| this.value.length < 6){
+            // 红色提醒用户输入不正确
+            var errorMsg ='请输入至少6位的用户名。';
+
+            $parent.append('<span class="formtips onError">'+errorMsg+'</span>');
+          }else{
+            // 绿色提醒用户输入正确
+            var okMsg = '输入正确';
+            $parent.append('<span class="formtips onSuccess">'+okMsg+'</span>');
+          }
+        }
+
+        // 2.验证邮箱
+        if( $(this).is('#email') ){
+          if( this.value=''||( this.value!=''&& !/^[a-z\d]+(\.[a-z\d]+)*@([\da-z](-[\da-z])?)+(\.{1,2}[a-z]+)+$/.test(this.value) ) ) {
+            var errorMsg = '请输入正确的E-Mail地址';
+            $parent.append('<span class="formtips onError">'+errorMsg+'</span>');
+          }else{
+            var okMsg = '输入正确';
+            $parent.append('<span class="formtips onSuccess">'+okMsg+'</span>');
+          }
+        }
+      }).keyup(function(event) {  //用户每次松开按键时触发
+        $(this).triggerHandler('blur'); //提醒用户输入是否正确
+      }).focus(function(event) {
+        $(this).triggerHandler('blur');  //元素得到焦点时提醒
+      });
+
+      // 添加keyup()和focus()使得当用户将光标定位到文本框上和改变文本框的值是，
+      // 表单就会即时提醒用户填写是否正确，从而符合用户的需求。
+      
+      // 二、整体验证
+      // 若用户无视错误提醒，执意要单击“提交”，为了使表单填写正确，在提交之前，需对表单的必须填写元素进行一次整体的验证
+      // 可以直接使用trigger()来触发blur事件，从而达到验证效果
+      $("#send").click(function(event) {
+        $("form .required:input运算").trigger('blur');
+        // 可以根据class为onError元素的长度来判断是否可以提交
+        // 如果长度为0，即true，说明已经可以提交了；
+        // 如果长度大于0，,即false，说明有错误，需要阻止表单提交
+        var numError = $('form .onError').length;
+        if(numError){
+          return false;
+        }
+        alert("注册成功。密码已经发到你的邮箱，请查收");
+      });
+    });
+  </script>
+</head>
+<body>
+   <form method="post">
+     <div class="int">
+       <label for="username">用户名:</label>
+       <input type="text" id="username" class="required" />
+     </div>
+     <div class="int">
+       <label for="email">邮箱:</label>
+       <input type="email" id="email" class="required" />
+     </div>
+     <div class="int">
+       <label for="personinfo">个人资料:</label>
+       <input type="email" id="personinfo" class="required" />
+     </div>
+     <div class="sub">
+       <input type="submit" value="提交" id="send" />
+       <input type="reset" value="重置" id="res" />
+     </div>
+   </form>
+</body>
+</html>

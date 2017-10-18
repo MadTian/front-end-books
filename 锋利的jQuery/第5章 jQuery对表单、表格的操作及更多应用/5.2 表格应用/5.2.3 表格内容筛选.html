@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>5.2.3 表格内容筛选</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <script type="text/javascript" src="../../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+
+      // 默认高亮显示“王五”这一行
+      $("tr:contains('王五')").addClass('selected');  //选择器:contains('')能匹配包含指定文本的元素
+
+      // :contains()结合filter()筛选方法，可以实现表格内容的过滤
+      // 筛选出含有文本“李”的表格行
+      // $("table tbody tr").hide()
+      //   .filter(":contains('李')").show();
+        
+      // 根据用户在文本框#filter输入的内容来筛选表格内容，然后为文本框绑定keyup事件
+      $("#filterName").keyup(function(event) {
+        $("table tbody tr").hide()
+        .filter(":contains('"+$(this).val()+"')").show();  //变量替换死值
+      }).keyup();  // 存在问题：表单元素有个特点，刷新网页后，其值会保持不变（IE9）
+                  //解决方法：只需在DOM加载完时，为表单元素绑定事件并且立即触发该事件
+
+    });
+  </script>
+</head>
+<body>
+  <label for="filterName">筛选：</label>
+  <input type="text" id="filterName" />
+  <table>
+    <thead>
+      <tr><th>姓名</th><th>性别</th><th>暂住地</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>张山</td><td>男</td><td>浙江宁波</td></tr>
+      <tr><td>李四</td><td>女</td><td>浙江杭州</td></tr>
+      <tr><td>王五</td><td>男</td><td>湖南长沙</td></tr>
+      <tr><td>找六</td><td>男</td><td>浙江温州</td></tr>
+      <tr><td>Rain</td><td>男</td><td>浙江杭州</td></tr>
+      <tr><td>MAXMAN</td><td>女</td><td>浙江杭州</td></tr>
+      <tr><td>王六</td><td>男</td><td>浙江杭州</td></tr>
+      <tr><td>李字</td><td>女</td><td>浙江杭州</td></tr>
+      <tr><td>李四</td><td>男</td><td>湖南长沙</td></tr>
+    </tbody>
+  </table>
+ 
+</body>
+</html>

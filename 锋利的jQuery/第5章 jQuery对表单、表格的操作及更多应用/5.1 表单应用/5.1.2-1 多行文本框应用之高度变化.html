@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>5.1.2-1 多行文本框应用之高度变化</title>
+  <style type="text/css">
+    *{margin: 0;padding: 0;}
+    .msg {
+      width: 300px;
+      margin: 100px;
+    }
+    .msg_caption { 
+      width:100%; 
+      overflow:hidden; 
+      margin-bottom:1px;
+    }
+    .msg_caption span { 
+      float:left; 
+      margin:0 2px; 
+      padding:4px 10px; 
+      background:#898989; 
+      cursor:pointer;
+      color:white; 
+    }
+    .msg textarea{ 
+      width:300px; 
+      height:100px;
+      border:1px solid #000;
+    }
+  </style>
+  <script type="text/javascript" src="../../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var $comment = $("#comment");
+      // 评论框高度范围：50px~500px
+      // 当点击“放大”按钮，评论框的高度在原有高度的基础上增加50px
+      $(".bigger").click(function(event) {
+        // 注意：在动画的过程中，需要判断评论框是否正处于动画
+        // 如果处于动画过程中，则不追加其他动画，以免造成动画队列不必要的累积
+        if(!$comment.is(":animated")){
+
+          if($comment.height()<500){
+
+          // $comment.height($comment.height()+50);  // height()方法获取的高度值是元素在页面中的实际高度，
+                                                      // 与样式的设置无关，且不带单位
+          // 上面的方法相应的变化效果很呆板，没有缓冲效果
+          // 建议：自定义动画animate()
+          $comment.animate({height : "+=50px"}, 400);  //px要加上
+          }
+
+        }
+        
+      });
+
+      // 当点击“缩小”按钮，评论框的高度在原有高度的基础上减去50px
+      $(".smaller").click(function(event) {
+        if(!$comment.is(":animated")){
+
+          if($comment.height()>50) {
+            // $comment.height($comment.height() - 50);
+            $comment.animate({height: "-=50px"}, 400);
+          }
+        }
+      });
+
+
+    });
+  </script>
+</head>
+<body>
+  <form>
+    <div class="msg">
+      <div class="msg_caption">
+        <span class="bigger">放大</span>
+        <span class="smaller">缩小</span>
+      </div>
+      <div>
+        <textarea id="comment" cols="20" rows="8">多行文本框高度变化.多行文本框高度变化。多行文本框高度变化。多行文本框高度变化。多行文本框高度变化。多行文本框高度变化。多行文本框高度变化。
+        </textarea>
+      </div>
+    </div>
+  </form>
+</body>
+</html>

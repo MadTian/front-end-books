@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>5.3.2 网页选项卡</title>
+  <link rel="stylesheet" type="text/css" href="css/style (2).css" />
+  <script type="text/javascript" src="../../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      
+      var $div_li = $('ul.tab_menu li');
+      $div_li.click(function(event) {
+        $(this)
+          .addClass('selected')  //当前li元素高亮
+          .siblings().removeClass('selected'); //去掉其他同辈li元素的高亮
+
+        var index = $div_li.index(this);  //当前单击的li元素在所有.tab_menu>li元素中的索引
+
+        $('div.tab_box > div')  //获取子节点
+          .eq(index).show()  //显示li元素对应的div元素
+          .siblings().hide();  //隐藏其他同辈的div元素
+
+      }).hover(function() {      //添加光标滑过效果
+        $(this).addClass('hover');  
+      }, function() {
+        $(this).removeClass('hover');
+      });
+
+    });
+  </script>
+</head>
+<body>
+  <div class="tab">
+    <ul class="tab_menu">
+      <li class="selected">时事</li>
+      <li>体育</li>
+      <li>娱乐</li>
+    </ul>
+    <div class="tab_box">
+      <div>时事</div>
+      <div class="hide">体育</div>
+      <div class="hide">娱乐</div>
+    </div>
+  </div>
+</body>
+</html>

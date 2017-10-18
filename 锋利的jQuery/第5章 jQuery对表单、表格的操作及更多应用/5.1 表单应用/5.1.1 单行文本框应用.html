@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>5.1.1 单行文本框应用</title>
+  <style type="text/css">
+    input:focus,textarea:focus {
+      border: 1px solid #f00;
+      background-color: #fcc;
+    }
+    /*IE6不支持除超链接之外的:hover伪类选择符，可以用JQ来弥补IE6对CSS支持的不足*/
+    .focus {
+      border: 1px solid #f00;
+      background-color: #fcc;
+    }
+  </style>
+  <script type="text/javascript" src="../../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    
+    $(":input").focus(function(event) {
+      $(this).addClass('focus');
+    }).blur(function(event) {
+      $(this).removeClass('focus');
+    });
+
+  });
+
+  </script>
+</head>
+<body>
+  <form action="#" method="POST" id="regForm">
+    <fieldset>
+      <legend>个人基本信息</legend>
+      <div>
+        <label for="username">名称:</label>
+        <input id="username" type="text" />
+      </div>
+      <div>
+        <label for="passWord">密码:</label>
+        <input id="passWord" type="password" />
+      </div>
+      <div>
+        <label for="msg">详细信息:</label>
+        <textarea id="msg"></textarea>
+      </div>
+    </fieldset>
+  </form>
+</body>
+</html>

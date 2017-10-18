@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>5.1.2-2 多行文本框应用之滚动条高度变</title>
+  <style type="text/css">
+    *{margin: 0;padding: 0;}
+    .msg {
+      width: 300px;
+      margin: 100px;
+    }
+    .msg_caption { 
+      width:100%; 
+      overflow:hidden; 
+      margin-bottom:1px;
+    }
+    .msg_caption span { 
+      float:left; 
+      margin:0 2px; 
+      padding:4px 10px; 
+      background:#898989; 
+      cursor:pointer;
+      color:white; 
+    }
+    .msg textarea{ 
+      width:300px; 
+      height:100px;
+      border:1px solid #000;
+    }
+  </style>
+  <script type="text/javascript" src="../../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var $comment = $("#comment");
+      // 实现效果：通过控制多行文本框滚动条的变化，使文本框里的内容滚动
+      
+      // 评论框高度范围：50px~500px
+      // 当点击“放大”按钮，评论框的高度在原有高度的基础上增加50px
+      $(".down").click(function(event) {
+        // 注意：在动画的过程中，需要判断评论框是否正处于动画
+        // 如果处于动画过程中，则不追加其他动画，以免造成动画队列不必要的累积
+        if(!$comment.is(":animated")){  //判断是否处于动画
+
+          if($comment.height()<500){
+            $comment.animate({scrollTop : "+=50px"}, 400);  //px要加上
+          }
+
+        }
+        
+      });
+
+      // 当点击“缩小”按钮，评论框的高度在原有高度的基础上减去50px
+      $(".up").click(function(event) {
+        if(!$comment.is(":animated")){
+
+          if($comment.height()>50) {
+            $comment.animate({scrollTop: "-=50px"}, 400);
+          }
+
+        }
+      });
+
+
+    });
+  </script>
+</head>
+<body>
+  <form>
+    <div class="msg">
+      <div class="msg_caption">
+        <span class="down">向下</span>
+        <span class="up">向上</span>
+      </div>
+      <div>
+        <textarea id="comment" cols="20" rows="8">多行文本框高度变化.多行文本框高度变化。多行文本框高度变化。多行文本框高度变化。多行文本框高度变化。多行文本框高度变化。多行文本框高度变化。
+        </textarea>
+      </div>
+    </div>
+  </form>
+</body>
+</html>

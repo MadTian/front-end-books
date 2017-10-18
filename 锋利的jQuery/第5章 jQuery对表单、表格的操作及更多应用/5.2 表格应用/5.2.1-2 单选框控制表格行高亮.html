@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>5.2.1-2 单选框控制表格行高亮</title>
+  <style type="text/css">
+    table{ border:1px solid #000;border-collapse:collapse;}
+    td{ font:normal 12px/17px Arial;padding:2px;width:100px;}
+    th{ font:bold 12px/17px Arial;text-align:left;padding:4px;border-bottom:1px solid #333;}
+    .even{ background:#FFF38F;}  /* 偶数行样式*/
+    .odd{ background:#FFFFEE;}  /* 奇数行样式*/
+    .selected{ background:#FF6500;color:#fff;}
+  </style>
+  <script type="text/javascript" src="../../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      // 默认显示
+      $("tr:contains('王五')").addClass('selected').find(':radio').attr('checked','true');
+      $('tbody>tr').click(function(event) {
+        
+        $(this)
+          .addClass('selected')  //当前对象是$(this)
+          .find(':radio').attr('checked','true') //当前对象是$(this).find(':radio')
+          .end()  //上一步对象已经由$(this)变为$(this).find(':radio')，
+                  // 若要重新返回$(this),可以使用end()方法
+          .siblings().removeClass('selected');
+      });
+      
+    });
+  </script>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>暂住地</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input type="radio" name="choice" value=""/></td>
+        <td>张山</td>
+        <td>男</td>
+        <td>浙江宁波</td>
+      </tr>
+      <tr>
+        <td><input type="radio" name="choice" value=""/></td>
+        <td>李四</td>
+        <td>男</td>
+        <td>浙江宁波</td>
+      </tr>
+      <tr>
+        <td><input type="radio" name="choice" value=""/></td>
+        <td>王五</td>
+        <td>男</td>
+        <td>浙江宁波</td>
+      </tr>
+      <tr>
+        <td><input type="radio" name="choice" value=""/></td>
+        <td>赵六</td>
+        <td>男</td>
+        <td>浙江宁波</td>
+      </tr>
+      <tr>
+        <td><input type="radio" name="choice" value=""/></td>
+        <td>Rain</td>
+        <td>男</td>
+        <td>浙江宁波</td>
+      </tr>
+      <tr>
+        <td><input type="radio" name="choice" value=""/></td>
+        <td>MAXMAN</td>
+        <td>男</td>
+        <td>浙江宁波</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
