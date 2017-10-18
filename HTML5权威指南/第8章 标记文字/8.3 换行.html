@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>8.3 换行</title>
+</head>
+<body>
+  <!-- 8.3.1 强制换行：<br /> -->
+  <!-- 让后续内容从新行开始显示 -->
+  <!-- br元素只宜用在换行也是内容的一部分；
+  切勿用它来创建段落或别的内容组，那是其他元素的任务 -->
+  I WANDERDED lonely as a cloud <br />
+  That floats on high o'er vales and hills, <br />
+  When all at once I saw a crowd, <br />
+  A host,of golded daffodils;<br />
+
+  <!-- 8.3.2 指明可以安全换行的建议设置：<wbr></wbr> H5新增-->
+  <!-- 用来表示长度超过浏览器窗口的内容适合在此换行，换不换由浏览器决定 -->
+  <p>This is a very long word: Super<wbr>califragilistic</wbr>expialidocious.
+    We can help the browser display long words with the <code>wbr</code> element.</p>
+</body>
+</html>

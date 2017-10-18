@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>8.7 其他文本元素</title>
+  <style type="text/css">
+    .fruit {
+      border:thin solid black;
+      padding:1px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 8.7.1 表示一段一般性的内容：span 
+  本身无任何含义-->
+  I like <span class="fruit">apples</span> and <span class="fruit">oranges</span>.
+
+  <!-- 8.7.2 突出显示文字：mark元素 -->
+  Homophones are words which are pronounced the same, but have different spellings and meanings. For example:
+  <p>
+    I would like a <mark>pair</mark> of <mark>pears</mark>
+  </p>
+
+  <!-- 8.7.3 表示添加和删除内容：ins和del -->
+  <!-- 局部属性cite 和datetime:
+      cite属性：用来指定解释添加或删除相关文字原因的文档的URL
+      del属性：用来设置修改时间
+   -->
+  <p>
+    <del>I can <mark>sea</mark> the <mark>see</mark></del>.
+    <ins> I can <mark>see</mark> the <mark>sea</mark></ins>
+  </p>
+
+  <!-- 8.7.4 表示时间和日期：time元素 -->
+  <!-- 局部属性：datetime和pubdate -->
+  <!-- 如果布尔属性pubdate存在，time元素表示的是整个HTML文档或离该元素最近的article元素的发布日期 -->
+  <!-- datetime属性是以RFC3339规定的格式指定日期和时间；
+  有了datetime就能在元素中以便于阅读的形式设置日期或时间，同时又确保计算机能无歧义的解析指定的日期或时间 -->
+  
+  <p>
+    I still remember the best apple I ever tested.
+    I bought it at <time datetime="15:00"> 3 o'clock</time> on <time datatime="1984-12-7">December 7th</time>.
+  </p>
+</body>
+</html>

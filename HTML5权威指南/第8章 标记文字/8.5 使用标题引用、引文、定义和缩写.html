@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>8.5 使用标题引用、引文、定义和缩写</title>
+</head>
+<body>
+  <!-- 8.5.1 abbr元素：缩写 -->
+  <!-- 其title属性：该缩写代表的完整词语 -->
+  I like apples and oranges.
+  The <abbr title="Florida Department of Cirtus">FDOC</abbr> regulates the Florida citrus industry.
+
+  <!-- 8.5.2 定义术语：dfn元素 -->
+  <!-- 在用来解释一个词或短语的含义的句子中 的词/短语 -->
+  <!-- 注意点：
+  1）如设置title属性，必须将其设置为所定义的术语
+  2）如dfn包含一个abbr元素，那么该缩写词就是要定义的术语
+  3）如元素内容为文字且没有title属性，那么其文字内容就是要定义的术语 -->
+  <p>
+    The <dfn title="apple">apple</dfn> is the pomaceous fruit of the apple tree,species Malus domestica in the rose family.
+  </p>
+
+  <!-- 8.5.3 引用来自他处的内容：q元素
+  cite属性用来指定来源文章的URL -->
+  <p>
+    <q cite="http://en.wikipedia.org/wiki/Apple">The <dfn title="apple">apple</dfn> is the pomaceous fruit of the apple tree,species Malus domestica in the rose family.</q>
+  </p>
+
+  <!-- 8.5.4 引用其他作品的标题：cite元素 -->
+  <!-- cite不能用来引用人名，只能用于作品标题 -->
+  My favorite book on fruit is <cite>Fruit:Edible,Inedible,Incredible</cite> by Stuppy & Kesseler
+</body>
+</html>

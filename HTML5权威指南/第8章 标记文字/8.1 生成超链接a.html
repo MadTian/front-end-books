@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>8.1 生成超链接</title>
+</head>
+<body>
+  <!-- 8.1.1 生成指向外部的超链接 -->
+  <!-- URL使用最多的协议：http
+  浏览器也支持其他协议：
+  比如https,ftp
+  还可以使用mailto协议，如mailto:adam@mydomain.com
+   -->
+  I like <a href="http://en.wikipedia.org/wiki/Apples">apples</a> and <a href="http://en.wikipedia.org/wiki/Orange_(fruit)">oranges</a>
+
+  <!-- 8.1.2 使用相对URL -->
+  <!-- 默认情况，浏览器会假定目标资源与当前文档位于同一位置
+  通过用base提供一个基础URL可以改变这种默认行为
+   -->
+
+   <!-- 8.1.3 生成内部超链接：#id -->
+   You can see other fruits <a href="#fruits">here</a>
+   <p>111</p>
+   <p>111</p>
+   <p>111</p>
+   <p>111</p>
+   <p>111</p>
+   <p>111</p>
+   <p>111</p>
+   <p>111</p>
+   <p>111</p>
+   <p>111</p>
+   
+   <p id="fruits">
+     I also like bananas,mangoes,cherries,apricots,plums,peaches and grapes.
+   </p>
+
+   <!-- 8.1.4 设置浏览环境Browsing context:target -->
+
+</body>
+</html>
