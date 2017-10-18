@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>6.5.2-get方法</title>
+  <style type="text/css">
+    * { margin:0; padding:0;}
+    body { font-size:12px;}
+    .comment { margin-top:10px; padding:10px; border:1px solid #ccc;background:#DDD;}
+    .comment h6 { font-weight:700; font-size:14px;}
+    .para { margin-top:5px; text-indent:2em;background:#DDD;}
+  </style>
+  <script type="text/javascript" src="../jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    
+    $("#send").click(function(event) {
+      // $.get( "get1.php" data参数，回调函数);
+      // 提交之前需要获取"姓名"和"内容"的值作为data参数传递给后台
+      /*$.get( "get1.php",{
+          username: $("#username").val(),
+          content: $("#content").val()
+      },回调函数);*/
+      
+      // $.get()方法的回调函数只有两个参数
+      /*$.get( "get1.php",{
+          username: $("#username").val(),
+          content: $("#content").val()
+      },function(data,textStatus){
+        // data: 返回的内容，可以是XML文档，JSON文件、HTML片段等等
+        // textStatus: 请求状态：success、error、notmodified、timeout 4种 
+                                // 回调函数只有当数据成功返回success后才会被调用，这点与load()不同
+      });*/
+
+      $.get( "get1.php",{
+          username: $("#username").val(),
+          content: $("#content").val()
+      },function(data,textStatus){
+        // 由于服务器返回的数据格式是HTML片段，因此并不需要经过处理就可以将新的HTML数据插入到主页面中
+        $("#resText").html(data);  //将返回的数据添加到页面上
+      });
+
+    });
+
+  });
+
+  </script>
+</head>
+<body>
+  <form action="#" id="form1">
+    <p>评论:</p>
+    <p>姓名: <input type="text" name="username" id="username" /></p>
+    <p>内容: <textarea name="content" id="content" cols="20" rows="2"></textarea></p>
+    <p><input type="button" id="send" value="提交" /></p>
+  </form>
+  <div class="comment">已有评论:</div>
+  <div id="resText"></div>
+</body>
+</html>

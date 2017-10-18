@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>6.5.1 load()方法-3.传递方式</title>
+  <style type="text/css">
+    * { margin:0; padding:0;}
+    body { font-size:12px;}
+    .comment { margin-top:10px; padding:10px; border:1px solid #ccc;background:#DDD;}
+    .comment h6 { font-weight:700; font-size:14px;}
+    .para { margin-top:5px; text-indent:2em;background:#DDD;}
+  </style>
+  <script type="text/javascript" src="../jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+
+      // $("#send").click(function(event) {
+      //   // load()方法是jQuery中最为简单和常用的Ajax方法，能载入远程HTML代码并插入DOM中。
+      //   // 结构为：load( url [,data] [,callback] )
+      //   // 只需要加载页面内的某些元素，可以使用load()方法的URL参数
+      //   // "url selector"
+      //   $("#resText").load("test.html .para");
+      // });
+      
+      // load()方法的传递方式根据参数data来自动指定。
+      // 如果没有参数传递，则采用GET方式传递；反之，则会自动转换为POST方式。
+      // 无参数传递，则是GET方式
+      $("#resText").load("test.php",function(){
+        // ...
+      });
+      // 有参数传递，则是POST方式
+      $("#resText").load("test.php",{name: "rain", age: "22"}，function(){
+        // ...
+      });
+    })
+
+  </script>
+</head>
+<body>
+  <!-- 按钮用来触发Ajax事件 -->
+  <input type="button" id="send" value="Ajax获取" />
+  <div class="comment">已有评论:</div>
+  <!-- 用来显示追加的内容↓ -->
+  <div id="resText"></div>
+  <!-- <script type="text/javascript">
+    // 实现效果：点击按钮，将test.html中的内容追加到该文档中
+    var oInput = document.getElementById('send');
+    // alert(oInput);
+    oInput.onclick = Ajax;
+  
+    function Ajax(){
+      var xmlHttpReq = null;
+      if(window.ActiveXObject){
+        xmlHttpReq = new ActiveXObject("Microsoft.XMLHTTP");  //兼容IE5，IE6
+      } else if (window.XMLHttpRequest) {  //除了IE5，IE6之外的浏览器
+        xmlHttpReq = new XMLHttpRequest();  //实例化一个XMLHttpRequest对象
+      }
+  
+      if(xmlHttpReq != null){
+        xmlHttpReq.open('GET','test.html');
+        xmlHttpReq.onreadystatechange = RequestCallBack;
+        xmlHttpReq.send();
+      }
+  
+      function RequestCallBack(){
+        if(xmlHttpReq.readyState ==4 && xmlHttpReq.status == 200){
+          document.getElementById('resText').innerHTML = xmlHttpReq.responseText;
+        }
+      }
+  
+    }
+  
+  </script> -->
+</body>
+</html>
