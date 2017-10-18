@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>7.3 使用脚本元素-script元素</title>
+  <!-- 1.定义文档内嵌脚本 -->
+  <script type="text/javascript">
+    document.write("This is from the script"+"<br>");
+  </script>
+  <!-- 2.载入外部脚本库 -->
+  <script type="text/javascript" src="simple.js"></script>
+
+  <!-- 3.defer:推迟脚本执行
+  等页面载入和解析完毕后才能执行脚本
+   -->
+   <script type="text/javascript" defer src="simple2.js"></script>
+
+   <!-- 4.async:异步执行脚本 运用得当，提高整体加载性能 -->
+   <!-- 浏览器默认行为：加载和执行脚本的同时暂停处理页面；
+    各个script元素依次同步执行
+    -->
+    <!-- <script type="text/javascript" defer src="simple3.js"></script> -->
+    <script type="text/javascript" async src="simple3.js"></script>
+</head>
+<body>
+  <p>
+    I like <code id="applecode">apples</code> and oranges.
+  </p>
+  <a href="http://apress.com">Visit Apress.com</a>
+  <a href="page2.html">Page 2</a>
+</body>
+</html>

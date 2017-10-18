@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>7.2.5 link指定外部元素</title>
+  <base href="http://titan/listings/"/>
+  <meta name="author" content="Adam Freeman"/>
+  <meta name="description" content="A simple example"/>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+
+  <!-- 添加网站标志 -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+  <!-- 预先获取关联的资源 -->
+  <link rel="prefetch"  href="/page2.html" />
+</head>
+<body>
+  <p>
+    I like <code id="applecode">apples</code> and oranges.
+  </p>
+  <a href="http://apress.com">Visit Apress.com</a>
+  <a href="page2.html">Page 2</a>
+</body>
+</html>
