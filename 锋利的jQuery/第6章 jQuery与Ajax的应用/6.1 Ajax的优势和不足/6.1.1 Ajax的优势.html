@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>6.1.1 Ajax的优势</title>
+  <script type="text/javascript">
+
+    console.log(1)
+    setTimeout(function(){
+      console.log(2);
+    },0)
+    console.log(3);
+  </script>
+</head>
+<body>
+  1.不需要插件支持：
+  Ajax不需要任何浏览器支持，就可以被绝大多数浏览器所支持，用户只需允许JS在浏览器上执行即可。
+
+  2.优秀的用户体验：
+  这是Ajax的最大优点，能在不刷新整个页面的前提下更新数据，这使得Web应用程序能更为快速地响应用户的操作。
+
+  3.提高Web应用程序的性能：
+  与传统模式相比，Ajax模式在性能上最大区别在传输数据的方式，
+  传统模式中，数据提交是通过表单（Form）来实现的，而数据获取是靠全面刷新来重新获取整页的内容。
+  Ajax模式只是通过XMLHttpRequest对象向服务器提交希望提交的数据，即按需发送。
+
+  4.减轻服务器和带宽的负担：
+  Ajax的工作原理相当于在用户和服务器之间加了一个中间层，使用户操作与服务器响应异步化。
+
+  它在客户端创建Ajax引擎，把传统方式下的一些服务器负担的工作转移到客户端，便于客户端资源来处理，减轻服务器和带宽的负担。
+
+  
+</body>
+</html>
