@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>28-1 使用基本元素数据属性</title>
+  <style type="text/css">
+    p{
+      border: 1px solid #000;
+    }
+    #results {
+      background-color: lightgrey;
+      color:grey;
+      padding: 2px;
+      border:1px dotted orange;
+    }
+  </style>
+</head>
+<body>
+  <p id="textblock" dir="ltr" lang="en-us" disabled>
+    There are lots of different kinds of fruit - there are over 500 varieties types of <span>banana</span> alone.
+    By the time we add the countless types of apples,oranges and other well-known fruit,we are faced with thousands of choices.
+  </p>
+  <pre id="results"></pre>
+
+  <script type="text/javascript">
+    var results = document.getElementById("results");
+    var elem = document.getElementById("textblock");
+
+    results.innerHTML += "tag: " + elem.tagName +"<br>";
+    results.innerHTML += "className: " + elem.className + "<br>";
+    results.innerHTML += "dir: " + elem.dir + "<br>";
+    results.innerHTML += "disabled: " + elem.disabled + "<br>";
+    results.innerHTML += "hidden: " + elem.hidden + "<br>";
+    results.innerHTML += "id: " + elem.id + "<br>";
+    results.innerHTML += "lang: " + elem.lang + "<br>";
+    results.innerHTML += "title: " + elem.title + "<br>";
+
+  </script>
+</body>
+</html>

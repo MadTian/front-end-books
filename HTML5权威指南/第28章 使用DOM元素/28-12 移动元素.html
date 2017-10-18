@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>28-12 移动元素</title>
+  <style type="text/css">
+    table {
+      border: thin solid black;
+      border-collapse: collapse;
+      margin: 10px;
+      float: left;
+    }
+    th,td {
+      padding:10px 10px;
+    }
+    p {
+      clear:left;
+    }
+  </style>
+</head>
+<body>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Fruit</th>
+        <th>Color</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Banana</td>
+        <td>Yellow</td>
+      </tr>
+      <tr id="apple">
+        <td>Apple</td>
+        <td>Red/Green</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Fruit</th>
+        <th>Color</th>
+      </tr>
+    </thead>
+    <tbody id="fruitBody">
+      <tr>
+        <td>Plum</td>
+        <td>Purple</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>
+    <button id="move">Move Row</button>
+  </p>
+
+  <script type="text/javascript">
+
+    // 要吧元素从文档的一处移到另一处，需要做的仅仅是
+    // 把待移动的元素关联到新的父元素上，而不需要让该元素脱离它的初始位置
+    var oBtn = document.getElementById("move");
+
+    oBtn.onclick = function () {
+      var elem = document.getElementById("apple");
+      var fruitBody = document.getElementById("fruitBody");
+      fruitBody.appendChild(elem);
+    }
+  </script>
+</body>
+</html>

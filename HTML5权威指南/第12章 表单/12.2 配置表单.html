@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>12.2 配置表单</title>
+  <!-- base元素将影响HTML文档中所有的相对URL，而不只是form元素 -->
+  <!-- <base href="http://titan:8080" /> -->
+</head>
+<body>
+  <!-- 代码清单12-3 使用base元素设置表单数据的发送地 -->
+  <!-- 12.2.1 配置表单的action属性 -->
+  <!-- 12.2.2 配置HTTP方法属性:method 
+  method用于指定将表单数据发送到服务器的HTTP方法
+  get:默认值；post:大多数表单需要使用HTTP POST方法-->
+  <form method="post" action="/form">
+    <input name="fave" />
+    <button>Submit vote</button>
+  </form>
+
+  <br />
+  
+  <!-- 12.2.3 配置数据编码:enctype -->
+  <!-- 三个值：application/x-www-form-urlencoded、multipart/form-data、text/plain -->
+  <form method="post" enctype="multipart/form-data">
+    <input name="fave"  placeholder="请输入您最喜欢的苹果"/>
+    <input name="name" placeholder="请输入用户名" />
+    <button>Submit vote</button>
+  </form>
+  
+  <!-- 12.2.4 控制表单的自动完成功能:autocomplete -->
+  <!-- 12-5 将form元素的autocomplete属性设置为禁用 -->
+  <form action="https://www.baidu.com/" method="post" autocomplete="off">
+    <input name="fave" />
+    <input name="name" />
+    <button>Submit vote</button>
+  </form>
+
+  <!-- 12-6 设置input元素的autocomplete属性 -->
+  <form action="https://www.baidu.com/" method="post" autocomplete="off">
+    <input autocomplete="on" name="fave" />
+    <input name="name" />
+    <button>Submit vote</button>
+  </form>
+</body>
+</html>

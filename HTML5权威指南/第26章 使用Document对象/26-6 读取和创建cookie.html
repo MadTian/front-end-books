@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>26-6 读取和创建cookie</title>
+</head>
+<body>
+  <p id="cookiedata"></p>
+  <button id="write">Add Cookie</button>
+  <button id="update">Update Cookie</button>
+
+  <script type="text/javascript">
+    var cookieCount = 0;
+    document.getElementById("write").onclick = createCookie;
+    document.getElementById("update").onclick = updateCookie;
+    readCookies();
+
+    function readCookies(){
+      document.getElementById("cookiedata").innerHTML = document.cookie;
+    }
+
+    function createCookie(){
+      cookieCount++;
+      document.cookie = "Cookie_" + cookieCount + "=Value_" + cookieCount;
+      readCookies();
+    }
+    function updateCookie(){
+      // cookieCount++;
+      document.cookie = "Cookie_" + cookieCount + "=Updated_" + cookieCount;
+      readCookies();
+    }
+  </script>
+</body>
+</html>

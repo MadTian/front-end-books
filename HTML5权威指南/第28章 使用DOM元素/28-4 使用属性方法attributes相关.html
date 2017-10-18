@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>28-4 使用属性方法attributes相关</title>
+  <meta name="author" content="Tina" />
+  <meta name="description" content="A simple example" />
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+  <style type="text/css">
+    p {
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <p class="fruit numbers" id="textblock">
+    There are lots of different kinds of fruit - there are over 500 varieties types of <span>banana</span> alone.
+    By the time we add the countless types of apples,oranges and other well-known fruit,we are faced with thousands of choices.
+  </p>
+  <pre id="results"></pre>
+
+  <!-- 与HTML属性相关的属性和方法：
+  1）attributes:返回应用到元素上的属性；
+  2）dataset:返回以data-开头的属性；
+  3）getAttribute():返回指定属性的值；
+  4）setAttribute():添加、修改指定名称和值的属性；
+  5) hasAttribute():判断元素是否带有指定的属性，有返回true;
+  6) removeAttribute():从元素上移除指定属性 -->
+
+  <script type="text/javascript">
+    var results = document.getElementById("results");
+    var elem = document.getElementById("textblock");
+
+    results.innerHTML = "Element has lang attribute: " + elem.hasAttribute("lang") +"<br>";
+    results.innerHTML += "Adding lang attribute\n";
+    elem.setAttribute("lang", "en-US");
+    results.innerHTML += "Attr value is: " + elem.getAttribute("lang") + "<br>";
+    results.innerHTML += "Set new value for lang attribute\n";
+    elem.setAttribute("lang", "en-UK");
+    results.innerHTML += "Value is now: " + elem.getAttribute("lang") + "<br>";
+
+  </script>
+</body>
+</html>

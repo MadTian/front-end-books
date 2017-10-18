@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>28-11 复制元素cloneNode方法</title>
+  <style type="text/css">
+    table {
+      border: thin solid black;
+      border-collapse: collapse;
+      margin: 10px;
+    }
+    th,td {
+      padding:10px 10px;
+    }
+  </style>
+</head>
+<body>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Multiply</th>
+        <th>Result</th>
+      </tr>
+    </thead>
+    <tbody id="fruitBody">
+      <tr>
+        <td class="sum">1 × 1</td>
+        <td class="result">1</td>
+      </tr>
+    </tbody>
+  </table>
+  <button id="add">Add Row</button>
+
+  <script type="text/javascript">
+    var tableBody = document.getElementById("fruitBody");
+    var oBtn = document.getElementById("add");
+
+    /*oBtn.onclick = function () {
+      var count = tableBody.getElementsByTagName("tr").length + 1;
+      var newElem = tableBody.getElementsByTagName("tr")[0].cloneNode(true);
+
+      newElem.getElementsByClassName("sum")[0].firstChild.data = count + "×" + count;
+      newElem.getElementsByClassName("result")[0].firstChild.data = count * count;
+
+      tableBody.appendChild(newElem);
+    }*/
+
+     oBtn.onclick = function () {
+      // var count = tableBody.getElementsByTagName("tr").length + 1;
+      // 通过cloneNode()不必从头开始创建想要的元素
+      // cloneNode方法的布尔值参数指定了是否应该同时复制该元素的所有子元素
+      var newElem = tableBody.getElementsByTagName("tr")[0].cloneNode(true);
+      tableBody.appendChild(newElem);
+      var count = tableBody.getElementsByTagName("tr").length;
+      // alert(count);
+
+      newElem.getElementsByClassName("sum")[0].firstChild.data = count + "×" + count;
+      newElem.getElementsByClassName("result")[0].firstChild.data = count * count;
+      // newElem.getElementsByClassName("sum")[0].appendChild(document.createTextNode(count + "×" + count));
+      // newElem.getElementsByClassName("result")[0].appendChild(document.createTextNode(count * count));
+    }
+  </script>
+</body>
+</html>

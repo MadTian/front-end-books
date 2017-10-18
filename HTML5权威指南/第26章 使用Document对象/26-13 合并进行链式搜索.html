@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>26-13 合并进行链式搜索</title>
+  <meta name="author" content="Adam Freeman" />
+  <meta name="description" content="A simple example" />
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+  <style type="text/css">
+    pre {
+      border: medium double black;
+    }
+  </style>
+</head>
+<body>
+  <!-- 已命名元素指的是带有id或name属性值的元素 -->
+  <pre id="results"></pre>
+  <img id="lemon" src="images/lemon.png" alt="lemon" />
+  <p id="tblock">
+    There are lots of different kinds of fruit - there are over 500 
+    varieties of <span id="banana">banana</span> alone.By the time we add the countless types of <span id="apple">apples</span>,<span id="orange">oranges</span>, and other well-known fruit,we are faced with thousands of choices.
+  </p>
+  
+  <script type="text/javascript">
+    var resultsElement = document.getElementById("results");
+    
+    var elems = document.getElementById("tblock").getElementsByTagName("span");
+    resultsElement.innerHTML += "There are " + elems.length + " span elements\n";
+    
+    var elems2 = document.getElementById("tblock").querySelectorAll("span");
+    resultsElement.innerHTML += "There are " + elems2.length + " span elements(Mix)\n";
+
+    var selElems = document.querySelectorAll("#tblock > span");
+    resultsElement.innerHTML += "There are " + selElems.length + " span elements(CSS)";
+  </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>26-10 获取已命名元素的对象</title>
+  <meta name="author" content="Adam Freeman" />
+  <meta name="description" content="A simple example" />
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+  <style type="text/css">
+    pre {
+      border: medium double black;
+    }
+  </style>
+</head>
+<body>
+  <!-- 已命名元素指的是带有id或name属性值的元素 -->
+  <pre id="results"></pre>
+  <img id="lemon" src="images/lemon.png" alt="lemon" />
+  <p>
+    There are lots of different kinds of fruit - there are over 500 
+    varieties of banana alone.By the time we add the countless types of apples,oranges, and other well-known fruit,we are faced with thousands of choices.
+  </p>
+  <img id="apple" src="images/apple.png" alt="apple" />
+  <p>
+    One of the interesting aspects of fruit is the 
+    variety available in each country.I live in London,in an area which is known for its apples.
+  </p>
+  <img id="banana" src="images/banana-small.png"  alt="small banana" />
+
+  <script type="text/javascript">
+    var resultsElement = document.getElementById("results");
+    // var resultsElement = document["results"];
+    // alert(resultsElement);
+    
+    var elems = document["apple"];
+
+    if (elems.namedItem) {
+      for(var i=0; i<elems.length; i++){
+        resultsElement.innerHTML += "Image Element: " + elems[i].id + "\n";
+      }
+    } else {
+      results.innerHTML += "Src for element is: " + elems.src + "\n";
+    }
+
+  </script>
+</body>
+</html>

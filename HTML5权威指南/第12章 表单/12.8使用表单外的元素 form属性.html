@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>12.8使用表单外的元素 form属性</title>
+</head>
+<body>
+  <form action="" id="voteform" method="post">
+    <p>
+      <label for="fave">Fruit: <input autofocus type="text" id="fave" /></label>
+    </p>
+  </form>
+  <p>
+    <label for="name">Name: <input type="text" id="name" /></label>
+  </p>
+  <button form="voteform" type="submit">Submit Vote</button>
+  <button form="voteform" type="reset">Reset</button>
+</body>
+</html>

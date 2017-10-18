@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>15.1 嵌入图像</title>
+</head>
+<body>
+  <!-- 要嵌入一张图像需要使用src和alt属性 -->
+  <!-- src指定欲嵌入图像的URL，alt用于图像无法显示时的提示文字 -->
+  <!-- 实例15-1 嵌入一张图像 -->
+  Here is a common form for representing the three activities in a triathlon.
+  <p>
+    <!-- 指定width和height属性是让浏览器能在图像尚未载入时正确摆放网页里的各个元素。 -->
+    <img src="triathlon.png" height="67" width="200" alt="Triathlon Image" />
+  </p>
+  The first icon represents swimming,the second represents cycling and the third represents running.
+
+  <!-- 15.1.1 在超链接里嵌入图像 -->
+  <!-- 给img元素应用ismap属性就创建了一个服务器端分区响应图，在图像上点击的位置会附加到URL上 -->
+  <!-- 实例15-2 使用img和a创建服务器端的分区响应图 -->
+  <p>
+    <a href="otherpage.html">
+      <img src="triathlon.png" ismap height="67" width="200" alt="Triathlon Image" />
+    </a>
+  </p>
+
+  <!-- 15.1.2 创建客户端分区响应图 map 、area -->
+  <!-- 实例15-4 创建分区响应图 -->
+
+  <p>
+    <img src="triathlon.png" usemap="#mymap" alt="Triathlon Image" />
+  </p>
+  The first icon represents swimming,the second represents cycling and the third represents running.
+
+  <map name="mymap">
+    <area shape="rect" coords="3,5,68,62" href="swimpage.html" alt="Swimming" />
+    <area shape="rect" coords="70,5,130,62" href="cyclepage.html" alt="Running" />
+    <area shape="default" href="otherpage" alt="default" />
+  </map>
+  <!-- 注：制作客户端分区响应图时，无需使用a元素来显示创建超链接 -->
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>26-10 获取已命名元素的对象</title>
+  <meta name="author" content="Adam Freeman" />
+  <meta name="description" content="A simple example" />
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+  <style type="text/css">
+    pre {
+      border: medium double black;
+    }
+  </style>
+</head>
+<body>
+  <!-- 已命名元素指的是带有id或name属性值的元素 -->
+  <pre id="results"></pre>
+  <img id="lemon" src="images/lemon.png" alt="lemon" />
+  <p>
+    There are lots of different kinds of fruit - there are over 500 
+    varieties of banana alone.By the time we add the countless types of apples,oranges, and other well-known fruit,we are faced with thousands of choices.
+  </p>
+  <img id="apple" src="images/apple.png" alt="apple" />
+  <img id="banana" src="images/banana-small.png"  alt="small banana" />
+  <p>
+    One of the interesting aspects of fruit is the 
+    variety available in each country.I live in London,in an area which is known for its apples.
+  </p>
+  <p>
+    <button id="parent">Parent</button>
+    <button id="child">First Child</button>
+    <button id="prev">Prev Sibling</button>
+    <button id="next">Next Sibling</button>
+  </p>
+  <script type="text/javascript">
+    var resultsElement = document.getElementById("results");
+    var element = document.body;
+
+    var buttons = document.getElementsByTagName("button");
+    for(var i=0;i<buttons.length;i++){
+      buttons[i].onclick = handleButtonClick;
+    }
+
+    processNewElement(element);
+
+    function handleButtonClick(e){
+      if(element.style){
+        element.style.backgroundColor = "white";
+      }
+
+      if(e.target.id == "parent" && element != document.body) {
+        element = element.parentNode;
+      } else if (e.target.id == "child" && element.hasChildNodes()) {
+        element = element.firstChild;
+      } else if(e.target.id == "prev" && element.previousSibling) {
+        element = element.previousSibling;
+      } else if(e.target.id == "next" && element.nextSibling) {
+        element = element.nextSibling;
+      }
+
+      processNewElement(element);
+      if (element.style) {
+        element.style.backgroundColor = "lightgrey";
+      }
+      
+    }
+
+    function processNewElement(elem) {
+      resultsElement.innerHTML = "Element type: " + elem + "\n";
+      resultsElement.innerHTML += "Element id: " + elem.id + "\n";
+      resultsElement.innerHTML += "Has child nodes: " + elem.hasChildNodes() + "\n";
+
+      if (elem.previousSibling){
+        resultsElement.innerHTML += ("Prev sibling is: " + elem.previousSibling + "\n");
+      } else {
+        resultsElement.innerHTML += "No prev siblings\n";
+      }
+
+      if (elem.nextSibling){
+        resultsElement.innerHTML += ("Next sibling is: " + elem.nextSibling + "\n");
+      } else {
+        resultsElement.innerHTML += "No next siblings\n";
+      }
+
+    }
+
+  </script>
+</body>
+</html>

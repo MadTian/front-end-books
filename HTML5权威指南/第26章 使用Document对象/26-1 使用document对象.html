@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>26-1 使用document对象</title>
+  <meta name="author" content="Adam Freeman" />
+  <meta name="description" content="How to Use Document Object" />
+</head>
+<body>
+  <p id="fruittext">
+    There are lots of different kinds of fruit - there are over 500 
+    varieties of <span>banana</span> alone.By the time we add the countless types of apples,oranges, and other well-known fruit,we are faced with thousands of choices.
+  </p>
+  <p id="apples">
+    One of the interesting aspects of fruit is the 
+    variety available in each country.I live in London,in an area which is known for its apples.
+  </p>
+  <script type="text/javascript">
+    document.writeln("<pre>URL: " + document.URL);  //document.URL属性返回当前文档的URL
+    var elems = document.getElementsByTagName("p");  //从文档中选择元素 getElementsByName()选择属于某一给定类型的所有元素
+    for(var i=0;i<elems.length;i++){
+      document.writeln("Element ID: " + elems[i].id);
+      // 为每个p元素创建了一个内嵌样式
+      elems[i].style.border = "medium double black";
+      elems[i].style.padding = "4px";
+    }
+    document.writeln("</pre>");
+  </script>
+</body>
+</html>

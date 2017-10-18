@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>15.3 通过插件嵌入内容 embed和object</title>
+</head>
+<body>
+  <!-- 15.3.1 使用embed元素 -->
+  <!-- 局部属性：src、type、height、width -->
+  <embed src="http://www.youtube.com/v/qzA60hHca9s?version=3" type="application/x-shockwave-flash" width="560" height="349" allowfullscreen ="true" />
+
+  <!-- 15.3.2 使用object和param元素 -->
+  <!-- 局部属性：data、type、height、width、usemap、name、form -->
+  <!-- data提供内容的地址,param来定义将要传递给插件的参数 -->
+  <!-- type属性可省略。浏览器会尝试从数据本身判断其类型 -->
+  <object width="560" height="349" data="http://www.youtube.com/v/qzA60hHca9s?version=3">
+    <!-- allowfullscreen 允许全屏观看 -->
+    <param name="allowfullscreen" value="true" />
+    
+    <!-- object元素的备用内容功能 -->
+    <!-- object元素一大优点是：可以包含备用内容，在指定内容不可用时显示出来 -->
+    <b>Sorry!</b>We can't display this content
+  </object>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>28-5 使用dataset属性</title>
+  <meta name="author" content="Tina" />
+  <meta name="description" content="A simple example" />
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+</head>
+<body>
+  <p class="fruit numbers" id="textblock" data-fruit="apple" data-sentiment="link">
+    There are lots of different kinds of fruit - there are over 500 varieties types of <span>banana</span> alone.
+    By the time we add the countless types of apples,oranges and other well-known fruit,we are faced with thousands of choices.
+  </p>
+  <pre id="results"></pre>
+
+  <script type="text/javascript">
+    var results = document.getElementById("results");
+    var elem = document.getElementById("textblock");
+
+    // 枚举以data-*开头的各个属性
+    for(var attr in elem.dataset) {
+      results.innerHTML += attr + "\n";  //fruit
+                                         //sentiment     
+    }
+
+    // 通过自定义属性的自定义部分来请求值
+    results.innerHTML += "Value of data-fruit attr: " + elem.dataset["fruit"];  //Value of data-fruit attr: apple
+  </script>
+</body>
+</html>

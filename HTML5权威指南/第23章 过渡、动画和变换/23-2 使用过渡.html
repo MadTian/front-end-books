@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>23-1 直接应用新的属性值</title>
+  <style type="text/css">
+    /*过渡效果一般是由浏览器直接改变元素的CSS属性实现的*/
+    span {
+      font-size: large;
+      border:medium solid black;
+      -webkit-transition-delay: 10ms;
+      -webkit-transition-duration: 250ms;;
+    }
+    span:hover {
+      font-size:x-large;
+      border: medium solid white;
+      background-color: green;
+      color:white;
+      padding: 4px;
+      -webkit-transition-delay: 100ms;
+      -webkit-transition-property: background-color,color,padding,font-size,border;
+      -webkit-transition-duration: 500ms;
+      -webkit-transition-timing-function: linear;;
+    }
+
+  </style>
+</head>
+<body>
+  <p>
+    There are lots of different kinds of fruit - there are over 500 varieties of <span>banana</span> alone.By the time we add the countlesss types of apples,oranges and other well-known fruit,we are faced with thousands of choices.
+  </p>
+</body>
+</html>

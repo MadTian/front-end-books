@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>28-10 创建和删除元素</title>
+  <style type="text/css">
+    table {
+      border: thin solid black;
+      border-collapse: collapse;
+      margin: 10px;
+    }
+    td {
+      padding:4px 5px;
+    }
+  </style>
+</head>
+<body>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Color</th>
+      </tr>
+    </thead>
+    <tbody id="fruitsBody">
+      <tr>
+        <td>Banana</td>
+        <td>Yellow</td>
+      </tr>
+      <tr>
+        <td>Apple</td>
+        <td>Red/Green</td>
+      </tr>
+      <!-- <tr>
+        <td>Plum</td>
+        <td>Purple</td>
+      </tr> -->
+    </tbody>
+  </table>
+  <button id="add">Add Element</button>
+  <button id="remove">Remove Element</button>
+
+  <script type="text/javascript">
+    var aBtn = document.getElementsByTagName("button");
+    var tBody = document.getElementById("fruitsBody");
+    // alert(tBody);
+
+    aBtn[0].onclick = function  () {
+      
+      var row = tBody.appendChild(document.createElement("tr"));
+      row.setAttribute("id", "newRow");
+      var rowTd = row.appendChild(document.createElement("td"));
+      rowTd.appendChild(document.createTextNode("Plum"));
+      var rowTd = row.appendChild(document.createElement("td"));
+      rowTd.appendChild(document.createTextNode("Purple"));
+    }
+    
+    aBtn[1].onclick = function () {
+      var newrow = document.getElementById("newRow");
+      newRow.parentNode.removeChild(newRow);
+    }
+
+  </script>
+</body>
+</html>

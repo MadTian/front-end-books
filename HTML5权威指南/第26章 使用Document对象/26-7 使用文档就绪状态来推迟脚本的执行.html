@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>26-7 使用文档就绪状态来推迟脚本的执行</title>
+  <script type="text/javascript">
+    document.onreadystatechange = function(){
+
+      if(document.readyState == "interactive") {
+
+        document.getElementById("pressme").onclick = function(){
+          document.getElementById("results").innerHTML = "Button Pressed";
+          
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+  <button id="pressme">Press Me</button>
+  <pre id="results"></pre>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>20-8 使用visibility</title>
+  <style type="text/css">
+    tr > th {
+      text-align: left;
+      background-color: grey;
+      color:white;
+    }
+    tr > th:only-of-type {
+      text-align: right;
+      background-color: lightgrey;
+      color:grey;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Color</th>
+      <th>Size</th>
+    </tr>
+    <tr id="firstchoice">
+      <th>Favorite:</th>
+      <td>Apples</td>
+      <td>Green</td>
+      <td>Medium</td>
+    </tr>
+    <tr>
+      <th>2nd Favorite:</th>
+      <td>Oranges</td>
+      <td>Orange</td>
+      <td>Large</td>
+    </tr>
+  </table>
+  <p>
+    <button>Visible</button>
+    <button>Collapse</button>
+    <button>Hidden</button>
+  </p>
+  <script type="text/javascript">
+    var aBtn = document.getElementsByTagName("button");
+    var oChoice = document.getElementById("firstchoice");
+
+    for(var i=0;i<aBtn.length;i++){
+
+      aBtn[i].onclick = function(e){
+      // oChoice.style.visibility = e.target.innerHTML;
+      oChoice.style.visibility = this.innerHTML;
+      }
+
+    }
+
+  </script>
+</body>
+</html>

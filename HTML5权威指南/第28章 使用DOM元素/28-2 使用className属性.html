@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>28.1.1 使用类</title>
+  <style type="text/css">
+    p {
+      border: 1px solid #000;
+    }
+    p.newClass {
+      color:white;
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+  <p class="fruit numbers" id="textblock">
+    There are lots of different kinds of fruit - there are over 500 varieties types of <span>banana</span> alone.
+    By the time we add the countless types of apples,oranges and other well-known fruit,we are faced with thousands of choices.
+  </p>
+  <button id="pressme">Press Me</button>
+
+  <pre id="results"></pre>
+  <button id="toggle">Toggle Class</button>
+
+  <!-- 28-2 使用className添加类 -->
+  <!-- <script type="text/javascript">
+    var oP = document.getElementsByTagName("p")[0];
+    var oBtn = document.getElementById("pressme");
+
+    // 点击按钮使一个新的类附加到元素的类列表上
+    oBtn.onclick = function(){
+      oP.className += " newClass";
+    }
+
+  </script> -->
+
+  <!-- 28-3 使用classList属性 -->
+  <script type="text/javascript">
+    var results = document.getElementById("results");
+    var classlist = document.getElementById("textblock").classList;
+    var oToggle = document.getElementById("toggle");
+
+    function listClasses() {
+      results.innerHTML = "Current classes: ";
+      for(var i=0;i<classlist.length;i++){
+        results.innerHTML += classlist[i] + " ";
+      }
+    }
+
+    oToggle.onclick = function(){
+      classlist.toggle("newClass");
+      listClasses();
+    }
+
+   
+  </script>
+</body>
+</html>

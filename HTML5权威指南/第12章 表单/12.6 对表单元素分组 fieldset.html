@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>12.6 对表单元素分组 fieldset</title>
+</head>
+<body>
+  <form method="post"  action="http://www.baidu.com">
+    <!-- 12.6.2 用fieldset禁用整组input -->
+    <fieldset disabled>
+      <!-- 12.6.1 为fieldset元素添加说明标签 legend -->
+      <legend>Enter Your Details</legend>
+      <p>
+      <label for="fave">
+        Fruit: <input autofocus type="text" id="fave" name="fave" />
+      </label>
+    </p>
+    <p>
+      <label for="city">
+        City: <input  autofocus type="text" id="city" city="city" />
+      </label>
+    </p>
+    </fieldset>
+    <fieldset>
+      <legend>Vote For Your Three Favorite Fruits</legend>
+      <p>
+        <label for="fave1">
+          #1: <input  type="text" id="fave" name="fave" />
+        </label>
+      </p>
+      <p>
+        <label for="fave2">
+          #2: <input  type="text" id="name" name="name" />
+        </label>
+      </p>
+      <p>
+        <label for="fave3">
+          #3: <input  type="text" id="name" name="name" />
+        </label>
+      </p>
+    </fieldset>
+  </form>
+</body>
+</html>

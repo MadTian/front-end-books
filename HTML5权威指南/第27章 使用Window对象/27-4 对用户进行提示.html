@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>27-4 对用户进行提示</title>
+</head>
+<body>
+  <button id="alert">Alert</button>
+  <button id="confirm">Confirm</button>
+  <button id="prompt">Prompt</button>
+  <button id="modal">Modal Dialog</button>
+
+  <script type="text/javascript">
+    var aBtn = document.getElementsByTagName("button");
+
+    for(var i=0;i<aBtn.length;i++){
+      aBtn[i].onclick = function(){
+
+        if(this.id == "alert"){
+          alert("This is an alert");
+        } else if(this.id == "confirm") {
+          var confirmed = confirm("This is a confirm - do you want to proceed?");
+          alert("Confirmed? " + confirmed);
+        } else if(this.id == "prompt"){
+          var response = window.prompt("Enter a word", "hello");
+          alert("The word was " + response);
+        } else if(this.id == "modal"){
+          window.showModalDialog("http://www.baidu.com/");
+        }
+
+      }
+    }
+  </script>
+</body>
+</html>

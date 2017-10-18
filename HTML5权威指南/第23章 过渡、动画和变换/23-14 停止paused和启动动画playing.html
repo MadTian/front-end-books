@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>23-14 停止paused和启动动画playing</title>
+  <style type="text/css">
+    /*动画本质上是增强的过渡*/
+    p{
+      padding: 5px;
+      border: medium double black;
+      background-color: lightgrey;
+      font-family: sans-serif;
+    }
+    span {
+      font-size: large;
+      border:medium solid black;
+      -webkit-animation: "GrowShrink" 500ms linear 100ms infinite normal;
+              animation: "GrowShrink" 500ms linear 100ms infinite normal;
+    }
+    
+    @-webkit-keyframes GrowShrink {
+      /*指定另一组关键帧from*/
+      from {
+        font-size:xx-small;
+        background-color: red;
+      }
+      
+      to {
+        font-size:x-large;
+        border: medium solid white;
+        background-color: green;
+        color:white;
+        padding: 4px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <p>
+    There are lots of different kinds of fruit - there are over 500 varieties of <span>banana</span> alone.By the time we add the countlesss types of apples,oranges and other well-known fruit,we are faced with thousands of choices.
+  </p>
+  <button>Running</button>
+  <button>Paused</button>
+  <script type="text/javascript">
+    var aBtn = document.getElementsByTagName("button");
+    var oSpan = document.getElementsByTagName("span")[0];
+
+    for(var i=0;i<aBtn.length;i++){
+      aBtn[i].onclick = function(){
+        oSpan.style.webkitAnimationPlayState = this.innerHTML;
+      }
+    }
+  </script>
+</body>
+</html>

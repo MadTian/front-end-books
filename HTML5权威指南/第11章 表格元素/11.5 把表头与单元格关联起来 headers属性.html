@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>11.5 把表头与单元格关联起来 headers属性</title>
+  <style type="text/css">
+
+    thead th,tfoot th {
+      text-align: left;
+      background: grey;
+      color:white;
+    }
+    /*:only-of-type 选择元素指定类型的唯一子元素*/
+    /*tr>th:only-of-type {
+      text-align: right;
+      background: lightgrey;
+      color:grey;
+    }*/
+    tbody th {
+    text-align: right;
+    background: lightgrey;
+    color:grey;
+    }
+    [colspan],[rowspan] {
+      font-weight: bold;
+      border: medium solid black;
+    }
+    thead[colspan],tfoot [colspan]{
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- td和th都定义了headers属性，可以供屏幕阅读器和其他残障辅助技术用来简化对表格的处理 -->
+  <!-- headers属性的值可被设置为一个或多个th单元格的id属性值 -->
+<table>
+  <!-- 11.3.1 表示表头和表格主体:thead、tbody -->
+  <thead>
+    <tr>
+      <th id="rank">Rank</th>
+      <th id="name">Name</th>
+      <th id="color">Color</th>
+      <th id="sizeAndVotes" colspan="2">Size & Votes</th>
+    </tr>
+  </thead>
+  <!-- 大多数浏览器在处理table元素时都会插入tbody元素；
+  因此最好写成table tr或者tbody>tr这样的选择器 -->
+  <tbody>
+    <tr>
+      <th id="first" headers="rank">Favorite:</th>
+      <td headers="name first">Apples</td>
+      <td headers="color first">Green</td>
+      <td headers="sizeAndVotes first">Medium</td>
+      <td headers="sizeAndVotes first">500</td>
+    </tr>
+    <tr>
+      <th headers="rank" id="second">2nd Favorite:</th>
+      <td headers="name second">Oranges</td>
+      <td headers="color second">Orange</td>
+      <td headers="sizeAndVotes second">Large</td>
+      <td headers="sizeAndVotes second">450</td>
+    </tr>
+  </tbody>
+  <!-- 11.3.2 添加表脚：tfoot -->
+  <!-- tfoot出现在tbody或tr元素前后皆可 -->
+  <tfoot>
+    <tr>
+      <th colspan="5">&copy; 2011 Adam Freeman Fruit Data Enterprises</th>
+    </tr>
+  </tfoot>
+</table>
+</body>
+</html>

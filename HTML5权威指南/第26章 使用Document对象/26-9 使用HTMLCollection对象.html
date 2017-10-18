@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>26-9 使用HTMLCollection对象</title>
+  <meta name="author" content="Adam Freeman" />
+  <meta name="description" content="A simple example" />
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+</head>
+<body>
+  <pre id="results"></pre>
+  <img id="lemon" src="images/lemon.png" alt="lemon" />
+  <p>
+    There are lots of different kinds of fruit - there are over 500 
+    varieties of banana alone.By the time we add the countless types of apples,oranges, and other well-known fruit,we are faced with thousands of choices.
+  </p>
+  <img id="apple" src="images/apple.png" alt="apple" />
+  <p>
+    One of the interesting aspects of fruit is the 
+    variety available in each country.I live in London,in an area which is known for its apples.
+  </p>
+  <img id="banana" src="images/banana-small.png"  alt="small banana" />
+
+  <script type="text/javascript">
+    var resultsElement = document.getElementById("results");
+    // 所有代表文档里img元素的对象
+    var elems = document.images;
+
+    for(var i=0; i<elems.length;i++){
+      // 数组索引标记：elems[i]
+      resultsElement.innerHTML += "Image Element: " + elems[i].id + "\n";
+    }
+
+    // namedItem方法：返回集合里带有指定id或name属性值的项目
+    var srcValue = elems.namedItem("apple").src;
+    resultsElement.innerHTML += "Src for apple element is: " + srcValue + "\n";
+
+  </script>
+</body>
+</html>
