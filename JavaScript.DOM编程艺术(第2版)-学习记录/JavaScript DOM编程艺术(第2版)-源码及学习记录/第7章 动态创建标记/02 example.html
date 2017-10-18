@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="02 example.js"></script>
+</head>
+<body>
+
+  <script type="text/javascript">
+
+      insertParagraph("This is inserted.");
+
+  </script>
+
+  <!--
+  1)document.write的最大缺点是它违背了"行为应该与表现分离"的原则：
+  即使把document.write语句放到外部函数里，也还是需要在标记的<body>
+  部分使用<script>标签才能调用那个函数
+
+  2)像上面这样把JS和HTML代码混杂在一起是一种很不好的做法：
+  既不容易阅读和编辑，也无法享受到把行为与结构分离开来的好处
+  3)不够优雅
+  4）应该避免使用document.write方法
+  -->      
+</body>
+</html>

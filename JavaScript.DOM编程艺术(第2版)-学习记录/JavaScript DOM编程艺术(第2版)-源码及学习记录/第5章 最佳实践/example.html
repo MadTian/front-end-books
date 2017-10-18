@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+          window.onload=prepareLinks;
+          function prepareLinks(){
+
+            var a=document.getElementsByTagName('a');
+
+            function popUp(winURL){
+              window.open(winURL,"popUp","width=1200,height=480");
+            }
+            // a.onclick=popUp(this.href);
+            for(var i=0;i<a.length;i++){
+
+              /*if(a[i].getAttribute('class') == 'popUp'){
+
+                a[i].onclick=popUp(this.href);
+
+                return false;
+
+              }*/
+              a[i].onclick=function(){
+
+                if((a[i].getAttribute('class') == 'popUp')){
+                  // popUp(this.href);
+                  return false;
+
+                }
+                
+              };
+
+            };
+
+
+          }
+          
+      </script>
+    </head>
+    <body>
+
+      <!-- <a href="javascript:popUp('http://www.soho.com/');">Example01</a><br />
+      <a href="" onclick="popUp('http://www.baidu.com/');return false;">Example02</a> -->
+
+
+      <a href="http://www.baidu.com/" class="popUp">example03</a>
+      <a href="http://2017.miaov.com/study" class="popUp">example04</a>
+      <!-- <a href="http://www.hao123.com/" onclick="return false;">example05</a> -->
+
+
+
+    </body>
+</html>

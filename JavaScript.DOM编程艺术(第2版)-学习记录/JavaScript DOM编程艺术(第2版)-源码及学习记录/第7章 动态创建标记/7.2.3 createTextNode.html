@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+  <div id="testdiv"></div>
+  <script type="text/javascript">
+
+    var para = document.createElement("p");
+    var testdiv = document.getElementById("testdiv");
+    testdiv.appendChild(para);
+    var txt = document.createTextNode("Hello world");
+    para.appendChild(txt);
+
+  </script>
+</body>
+</html>

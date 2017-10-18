@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+  <p id="example" style="color:grey; font-family:'Arial',sans-serif;">An example of paragraph</p>
+  <span style="color:#f00;">行者无疆</span>
+  <script type="text/javascript">
+     var para = document.getElementById("example");
+     // alert("The font family is " + para.style.fontFamily); //The font family is Arial, sans-serif
+
+     var oSpan = document.getElementsByTagName("span")[0];
+     alert("The color is " + oSpan.style.color);
+
+  </script>
+</body>
+</html>
