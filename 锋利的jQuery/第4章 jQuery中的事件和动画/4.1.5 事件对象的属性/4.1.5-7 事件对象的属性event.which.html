@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>事件对象的属性event.which</title>
+  <!-- 引入jQuery -->
+  <script type="text/javascript" src="../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    // event.which的作用是在鼠标单击事件中获取到鼠标的左、中、右键
+    $("a").mousedown(function(event) {
+      // alert(event.which);  //1=鼠标左键；2=鼠标中键；3=鼠标右键
+    });
+
+    // 在键盘事件中获取键盘的按键
+    $("input").keyup(function(event) {
+      alert(event.which);
+    });
+  });
+  </script>
+</head>
+<body>
+  <a href='http://google.com'>click me .</a>
+  <input type="text" />
+</body>
+</html>

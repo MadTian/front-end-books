@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>4.1.7-2 触发自定义事件</title>
+  <script type="text/javascript" src="../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $("#btn").bind('myClick', function(event) {
+      $("#test").append('<p>我的自定义事件</p>')
+    });
+    // 上面的例子都必须用户通过点击按钮，才能触发click事件
+    // 但有时需要通过模拟用户操作来达到点击的效果
+    
+    // trigger('event name')
+    // 示例：用户进入页面后，就触发click事件，而不需要用户主动单击
+    // 该方法不仅能触发浏览器支持的具有相同名称的事件，也可触发自定义名称的事件。
+    $("#btn").trigger('myClick');
+    
+  });
+  </script>
+</head>
+<body>
+  <button id="btn">点击我</button>
+  <div id="test"></div>
+</body>
+</html>

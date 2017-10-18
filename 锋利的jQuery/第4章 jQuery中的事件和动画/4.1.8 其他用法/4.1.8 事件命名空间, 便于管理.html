@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>4-8-2事件命名空间, 便于管理</title>
+  <style>
+    div{width:100px;height:50px;background:#888;color:white;}
+  </style>
+  <script type="text/javascript" src="../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $("div").bind('click.plugin', function(event) {
+      $("body").append('<p>click事件</p>');
+    });
+
+    $("div").bind('mouseover.plugin', function(event) {
+      $("body").append('<p>mouseover事件</p>');
+    });
+    $("div").bind('dblclick', function(event) {
+      $("body").append('<p>dblclick事件</p>');
+    });
+
+
+    $("button").click(function(event) {
+      // $("div").unbind('click').unbind('mouseover');
+      // 在所绑定的事件类型后面添加命名空间，删除事件时只需要指定命名空间即可。
+      $("div").unbind('.plugin');
+    });
+
+  });
+  </script>
+</head>
+<body>
+  <div>test.</div>
+  <button >根据命名空间，删除事件</button>
+</body>
+</html>

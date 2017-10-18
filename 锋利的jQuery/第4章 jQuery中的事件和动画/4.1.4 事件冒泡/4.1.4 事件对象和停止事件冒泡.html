@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>4.1.4 事件对象和停止事件冒泡</title>
+  <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  <script type="text/javascript" src="../scripts/jquery-3.2.1.min.js"></script>
+  <!-- 通过示例了解bind()方法 -->
+  <script type="text/javascript"> 
+    $(document).ready(function() {
+
+      // 为span元素绑定click事件
+      $('span').bind('click', function(event) {  //event:事件对象
+        var txt = $('#msg').html()+'<p>内层span元素被单击.</p>';
+        $('#msg').html(txt);
+        event.stopPropagation();  //停止事件冒泡
+      });
+
+      // 为div元素绑定click事件
+      $('#content').bind('click', function(event) {
+        var txt = $('#msg').html()+'<p>外层div元素被单击.</p>';
+        $('#msg').html(txt);
+        event.stopPropagation();  //停止事件冒泡
+      });
+
+      // 为body元素绑定click事件
+      $('body').bind('click', function(event) {
+        var txt = $('#msg').html()+'<p>body元素被单击.</p>';
+        $('#msg').html(txt);
+      });
+
+      // 效果：
+      // 当单击span元素，即触发span元素的click事件，同时也单击了包含span元素的div和包含div元素的body元素，且每个元素都会按照特定的顺序响应click事件（冒泡）
+      
+    });
+  </script>
+</head>
+<body>
+  <div id="content">
+    外层div元素
+    <span>内层span元素</span>
+    外层div元素
+  </div>
+  <div id="msg"></div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>4.2.1-1 show()和hide()方法</title>
+  <style type="text/css">
+    *{margin:0;padding:0;}  
+    body { font-size: 13px; line-height: 130%; padding: 60px }
+    #panel { width: 300px; border: 1px solid #0050D0 }
+    .head { height:24px;line-height:24px;text-indent:10px;background: #96E555; cursor: pointer;width:100%; }
+    .content { padding: 10px; text-indent:24px; border-top: 1px solid #0050D0;display:block; }
+  </style>
+
+  <script type="text/javascript" src="../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    // show()和hide()是JQ种最基本的动画方法
+    // 在一个HTML文档里，为一个元素调用hide()方法会将元素的display样式改为“none”
+    // $("div.content").hide();
+    // 同下：
+    // $("div.content").css('display', 'none');
+
+    // 当元素隐藏后，可以使用show()方法将元素的display样式设置为先前的显示状态
+    $("h5.head").click(function(event) {
+      // $("div.content").show();
+      // $("div.content").toggle();
+    });
+    // toogle(fn1,fn2..fnN)用于模拟鼠标连续单击事件
+    // 第一次单击，触发fn1,第二次单击触发fn2...依次触发知道最后一个
+    // 随后的每次单击都重复对这几个函数轮番调用
+    /*$("#panel h5.head").toggle(function() {  //最新JQ删除此函数
+      $(this).next().hide();
+    }, function() {
+      $(this).next().show();
+    });*/
+    
+    $("#panel h5.head").hover(function() {
+      $(this).next().hide();
+    }, function() {
+      $(this).next().show();
+    });
+
+    // 注意：hide()方法在将“#content”的display设置为“none”之前，会记住原先的display属性值("block"或“inline”或其他除了"none"之外的值)。当调用show()方法时，就会根据hide()方法记住的display属性值来显示元素。
+  });
+  </script>
+
+</head>
+<body>
+  <div id="panel">
+    <h5 class="head">什么是jQuery?</h5>
+    <div class="content">
+      jQuery是继Prototype之后又一个优秀的JavaScript库，它是一个由 John Resig 创建于2006年1月的开源项目。jQuery凭借简洁的语法和跨平台的兼容性，极大地简化了JavaScript开发人员遍历HTML文档、操作DOM、处理事件、执行动画和开发Ajax。它独特而又优雅的代码风格改变了JavaScript程序员的设计思路和编写程序的方式。
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>4.2.4-2 累加、累减动画</title>
+  <style type="text/css">
+    *{margin: 0;padding: 0;}
+    #panel {
+      margin: 60px;
+      width: 100px;
+      height: 100px;
+      background-color: #96E555;
+      border: 1px solid #0050D0;
+      cursor:pointer;
+      position:relative;
+    }
+  </style>
+  <script type="text/javascript" src="../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $("#panel").click(function(event) {
+      // 自定义动画animate()语法结构：
+      // animate(params, speed,callback);
+      // params:一个包含样式属性及值的映射；
+      // speed：速度参数，可选
+      // callback:在动画完成时执行的函数，可选
+      
+      // +=、-=累加、累减动画
+      // 实例：在当前位置累加100px
+      $(this).animate({left: "+=100px"}, 300);
+    });
+  });
+  </script>
+</head>
+<body>
+  <div id="panel"></div>
+</body>
+</html>

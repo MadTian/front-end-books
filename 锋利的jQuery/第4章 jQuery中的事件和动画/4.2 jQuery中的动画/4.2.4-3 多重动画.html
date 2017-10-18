@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>4.2.4-3 多重动画</title>
+  <style type="text/css">
+    *{margin: 0;padding: 0;}
+    #panel {
+      margin: 60px;
+      width: 100px;
+      height: 100px;
+      background-color: #96E555;
+      border: 1px solid #0050D0;
+      cursor:pointer;
+      position:relative;
+    }
+  </style>
+  <script type="text/javascript" src="../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $("#panel").click(function(event) {
+      // 1-同时执行多个动画
+      // div元素在向右滑动的同时，也会放大高度
+      // $(this).animate({left: "500px",height:"200px"}, 3000);
+    });
+
+    // 2-按顺序执行多个动画
+    // 按顺序写就好
+    $("#panel").click(function(event) {
+      // $(this).animate({left:"500px"}, 3000);
+      // $(this).animate({height:"200px"}, 3000);
+    });
+    // 链式操作亦可：
+    $("#panel").click(function(event) {
+      $(this).animate({left:"500px"},3000)
+            .animate({height:"300px"},3000);
+    });
+
+    // 像上面，动画效果的执行具有先后顺序，称为“动画队列”
+  });
+  </script>
+</head>
+<body>
+  <div id="panel"></div>
+</body>
+</html>

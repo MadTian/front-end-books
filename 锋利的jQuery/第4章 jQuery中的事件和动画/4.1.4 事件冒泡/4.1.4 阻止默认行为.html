@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>4.1.4 阻止默认行为</title>
+  <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  <script type="text/javascript" src="../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      // 网页中的元素有自己的默认行为，例如单击超链接后会跳转，单击“提交”按钮后表单会提交
+      // JQ中，阻止元素的默认行为：preventDefault()
+      $("#sub").click(function(event) {
+        var username = $("#username").val();
+        if(username==""){  //判断值是否为空
+          $("#msg").html("<p>文本框的值不能为空</p>");  //提示信息
+          // event.preventDefault();  //阻止默认行为（提交表单）
+
+          // 若想同时对事件对象停止冒泡和默认行为，可以在事件处理函数中返回false.
+          // 这是对在事件对象上同时调用stopPropagation()和preventDefault()的一种简写形式
+          return false;
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <form action="test.html">
+    
+    用户名：<input type="text" id="username" />
+    <input type="submit" value="提交" id="sub" />
+  </form>
+  <div id="msg"></div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>4.2.5 动画回调函数</title>
+  <style type="text/css">
+    *{margin: 0;padding: 0;}
+    #panel {
+      margin: 60px;
+      width: 100px;
+      height: 100px;
+      background-color: #96E555;
+      border: 1px solid #0050D0;
+      cursor:pointer;
+      position:relative;
+      display: none;
+    }
+  </style>
+  <script type="text/javascript" src="../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    // $("#panel").css('opacity', '0.5');
+
+    $("#panel").click(function(event) {
+      $(this).animate({left:"400px",height:"200px",opacity:"1"}, 3000)
+             // .animate({top: "200px", width: "200px"}, 2000)
+             // .css('border','5px solid blue');  //刚开始执行动画css()方法就会被执行
+             
+             // 如果想在最后一步切换元素的CSS样式，而不是隐藏元素，可以使用callback回调函数
+             // 使用回调函数对非动画方法实现排队
+             .animate({top: "200px", width: "200px"}, 2000,function(){
+                $(this).css('border', '5px solid red');
+             })
+    });
+
+    // callback回调函数适用于jQuery所有的动画效果方法，例如slideDown()方法的回调函数：
+    $("#panel").slideDown('3000', function() {
+      $(this).html("<p>你好呀！</p>");
+    });
+  });
+  </script>
+</head>
+<body>
+  <div id="panel"></div>
+</body>
+</html>

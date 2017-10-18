@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>4.1.8-3相同事件名称,不同命名空间执行方法</title>
+  <style>
+    div{width:100px;height:50px;background:#888;color:white;}
+  </style>
+  <script type="text/javascript" src="../scripts/jquery.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    // 为元素绑定相同的事件类型，以命名空间的不同按需调用
+    $("div").bind('click', function(event) {
+      $("body").append('<p>click事件</p>')
+    });
+
+    $("div").bind('click.plugin', function(event) {
+      $("body").append('<p>click.plugin事件</p>')
+    });
+
+    $("button").click(function() {
+      // $("div").trigger("click");  //两者都触发
+      $("div").trigger("click!");    // 注意click后面的感叹号 感叹号作用是匹配所有不包含在命名空间中的click方法 最新jQuery不支持
+    });
+
+  });
+  </script>
+</head>
+<body>
+  <div>test.</div>
+  <button>根据命名空间，触发事件</button>
+</body>
+</html>

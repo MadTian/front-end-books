@@ -1,0 +1,25 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+#panel {
+  margin:60px auto auto 60px;
+  width: 300px;
+  border: 1px solid #0050D0;
+  font-size: 12px;
+}
+.head {
+  line-height: 24px;
+  background-color: #96E555;
+  padding-left: 10px;
+}
+.content {
+  border-top:1px solid #0050D0;
+  padding: 14px 16px 12px 10px;
+  text-indent: 2em;
+  display: none;
+}
+.highlight {
+  background-color: #f30;
+  color:#fff;
+}

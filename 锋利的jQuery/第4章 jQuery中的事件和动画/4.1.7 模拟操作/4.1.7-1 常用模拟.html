@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>4.1.7-1 常用模拟</title>
+  <script type="text/javascript" src="../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $("#btn").bind('click', function(event) {
+      $("#test").append('<p>我的绑定函数1</p>')
+    }).bind('click', function(event) {
+      $("#test").append('<p>我的绑定函数2</p>')
+    }).bind('click', function(event) {
+      $("#test").append('<p>我的绑定函数3</p>')
+    });
+    // 上面的例子都必须用户通过点击按钮，才能触发click事件
+    // 但有时需要通过模拟用户操作来达到点击的效果
+    
+    // trigger('event name')
+    // 示例：用户进入页面后，就触发click事件，而不需要用户主动单击
+    // $("#btn").trigger('click');
+    // 也可以直接简化写法，达到同样效果：
+    $("#btn").click();
+  });
+  </script>
+</head>
+<body>
+  <button id="btn">点击我</button>
+  <div id="test"></div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>4.1.2 事件绑定示例-基本效果</title>
+  <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  <script type="text/javascript" src="../scripts/jquery-3.2.1.min.js"></script>
+  <!-- 通过示例了解bind()方法 -->
+  <script type="text/javascript"> 
+    $(function(){  //等到DOM加载完毕
+
+      // 找到“标题”元素，绑定click事件
+      // on(),bind()皆可
+      $("#panel h5.head").bind('click', function(event) {
+        // 找到“内容元素”，将“内容”元素显示
+        // $("#panel div.content").show();
+        $(this).next().show();
+      });
+      
+
+    })
+
+  </script>
+</head>
+<body>
+  <div id="panel">
+    <h5 class="head">什么是jQuery?</h5>
+    <div class="content">
+      jQuery是继Prototype之后又一个优秀的JavaScript库，它是一个由 John Resig 创建于2006年1月的开源项目。jQuery凭借简洁的语法和跨平台的兼容性，极大地简化了JavaScript开发人员遍历HTML文档、操作DOM、处理事件、执行动画和开发Ajax。它独特而又优雅的代码风格改变了JavaScript程序员的设计思路和编写程序的方式。
+    </div>
+  </div>
+</body>
+</html>

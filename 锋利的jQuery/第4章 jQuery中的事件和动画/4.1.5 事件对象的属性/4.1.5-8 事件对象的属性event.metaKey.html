@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>事件对象的属性event.metaKey</title>
+  <!-- 引入jQuery -->
+  <script type="text/javascript" src="../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    // event.metaKey为键盘事件中获取ctrl键
+    $("input").keyup(function(e){
+      alert( e.metaKey +" "+e.ctrlKey );
+      $(this).blur();
+    })
+  });
+  </script>
+</head>
+<body>
+  <input type="text" value="按住ctrl键，然后再点其他任何键" style="width:200px"/>
+</body>
+</html>

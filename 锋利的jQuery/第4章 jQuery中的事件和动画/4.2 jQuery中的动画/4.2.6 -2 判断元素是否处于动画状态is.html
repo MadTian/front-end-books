@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>4.2.6 -2 判断元素是否处于动画状态is(":animated")</title>
+  <style type="text/css">
+    *{margin: 0;padding: 0;}
+    #panel {
+      margin: 60px;
+      width: 100px;
+      height: 100px;
+      background-color: #96E555;
+      border: 1px solid #0050D0;
+      cursor:pointer;
+      position:relative;
+      display: block;
+    }
+  </style>
+  <script type="text/javascript" src="../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    
+    if(!$("#panel").is(":animated")){ //判断元素是否处于动画状态
+      
+      // 如果当前没有进行动画，则添加新动画
+      
+    }
+    
+  });
+  </script>
+</head>
+<body>
+  <div id="panel"></div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>4.2.6 -1 停止元素的动画</title>
+  <style type="text/css">
+    *{margin: 0;padding: 0;}
+    #panel {
+      margin: 60px;
+      width: 100px;
+      height: 100px;
+      background-color: #96E555;
+      border: 1px solid #0050D0;
+      cursor:pointer;
+      position:relative;
+      display: block;
+    }
+  </style>
+  <script type="text/javascript" src="../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    // $("#panel").hover(function() {
+    //   // stop(clearQueue, gotoEnd)
+    //   // 如果直接使用stop()会停止当前正在执行的动画，如果接下来还有动画等待继续进行，则以当前状态开始接下来的动画。
+    //   $(this).stop()
+    //         // .animate({height: "150",width: "300"}, 200);
+    // }, function() {
+    //   $(this).stop()
+    //         // .animate({height:"22",widht: "60"},300);
+    // });
+
+    /*$("#panel").hover(function() {
+      $(this).stop()
+          .animate({height : "150" } , 2000 )  //如果此时触发了光标移出的事件，
+                                              // 将执行下面的动画，而非光标移出事件中的动画
+          .animate({width : "300" } , 200)
+    }, function() {
+      $(this).stop()
+            .animate({height : "22"} ,200)  
+            .animate({background:"blue"},200);
+    });*/
+
+    // 把第1个参数设为true,此时程序会把当前元素接下来尚未执行完的动画队列都清空
+    // $("#panel").hover(function() {
+    //   $(this).stop(true)
+    //       .animate({height : "150" } , 2000 )  //如果此时触发了光标移出的事件，
+    //                                           // 直接跳过后面的动画队列（..width:"300"..）
+    //       .animate({width : "300" } , 200)
+    // }, function() {
+    //   $(this).stop(true)
+    //         .animate({height : "22"} ,200)   //执行此处
+    //         .animate({background:"blue"},200);
+    // });
+
+    // 第2个参数（gotoEnd）可以用于让正在执行的动画直接结束到达结束时刻的状态，通常用于后一个动画需要基于前一个动画的末状态的情况，可以通过stop(false,true)这种方式来让当前动画直接到达末状态。
+    // stop(true,true),即停止当前动画并直接到达当前动画的末状态，并清空动画队列
+    
+  });
+  </script>
+</head>
+<body>
+  <div id="panel"></div>
+</body>
+</html>

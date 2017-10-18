@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>4.3 视频轮播图</title>
+  <style type="text/css">
+    /*CSS reset*/
+    * { margin:0; padding:0; word-break:break-all; }
+    body { background:#FFF; color:#333; font:12px/1.5em Helvetica, Arial, sans-serif; }
+    h1, h2, h3, h4, h5, h6 { font-size:1em; }
+    a { color:#2B93D2; text-decoration:none; }
+    a:hover { color:#E31E1C; text-decoration:underline; }
+    ul, li { list-style:none; }
+    fieldset, img { border:none; }
+
+    /*头部标题，按钮等*/
+    .v_show {
+      margin: 20px 60px;
+      width: 595px;
+      /*height: 196px;*/
+    }
+    .v_caption {
+      height: 35px;
+      background: url(img/btn_cartoon.gif) no-repeat 0 0;
+    }
+    .v_caption h2 {
+      width: 84px;
+      height: 35px;
+      background: url(img/btn_cartoon.gif) 0 -100px;
+      margin-right: 12px;
+      text-indent: -999em;
+      float: left;
+    }
+    .highlight_tip {
+      padding: 14px 0;
+      float: left;
+
+    }
+    .highlight_tip span {
+      float: left;
+      width: 7px;
+      height: 7px;
+      background-color: #fff;
+      border-radius: 50%;
+      text-indent: -999em;
+      margin-right: 4px;
+    }
+    .highlight_tip span.current {
+      background-color: #04AEF4;
+    }
+    .change_btn {
+      float: left;
+      padding:7px 8px 0;
+    }
+    .change_btn span {
+      width: 31px;
+      height: 23px;
+      background: url(img/btn_cartoon.gif) no-repeat 0 -400px;
+      float: left;
+      text-indent: -999em;
+      cursor: pointer;
+    }
+    .change_btn span.next {
+      width: 30px;
+      background-position: -31px -400px;
+    }
+    .v_caption a {
+      float: right;
+      padding-right: 9px;
+      height: 35px;
+      line-height: 35px;
+      text-decoration: none;
+    }
+    .v_caption a:hover {
+      color: #E31E1C;
+      text-decoration: underline;
+    }
+    /*视频内容展示区域*/
+    .v_content {
+      /*padding: 18px 10px 16px;*/
+      border: 1px solid #E7E7E7;
+      border-top: 0 none;
+      width: 592px;
+      height: 160px;
+      position: relative;
+      overflow: hidden;
+    }
+    .v_content_list {
+      width: 2500px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+    }
+    .v_content_list li {
+      float: left;
+      margin:18px 10px 16px;
+      width: 128px;
+    }
+    .v_content_list li h4 {
+      font-weight: normal;
+    }
+    .v_content_list li>a {
+      display: block;
+      width: 130px;
+      height: 80px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .v_content_list li em {
+      color: #888;
+      font-family: Verdana;
+    }
+  </style>
+  <script type="text/javascript" src="../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="adimg-02.js"></script>
+</head>
+<body>
+  <div class="v_show">
+    <!-- 头部标题，按钮等 -->
+    <div class="v_caption">
+      <h2 class="carton" title="卡通动漫">卡通动漫</h2>
+      <div class="highlight_tip">
+        <span class="current">1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+      </div>
+      <div class="change_btn">
+        <span class="prev">上一页</span>
+        <span class="next">下一页</span>
+      </div>
+      <a href="javascript:;" class="more"><em>更多</em>>></a>
+    </div>
+    <!-- 视频内容展示区域 -->
+    <div class="v_content">
+      <div class="v_content_list">
+        <ul>
+          <!-- 海贼王 -->
+          <li>
+            <a href="javascript:;"><img src="img/01.jpg" alt="海贼王" /></a>
+            <h4><a href="javascript:;">海贼王</a></h4>
+            <span>播放:<em>28,276</em></span>
+          </li>
+          <li>
+            <a href="javascript:;"><img src="img/01.jpg" alt="海贼王" /></a>
+            <h4><a href="javascript:;">海贼王</a></h4>
+            <span>播放:<em>28,276</em></span>
+          </li>
+          <li>
+            <a href="javascript:;"><img src="img/01.jpg" alt="海贼王" /></a>
+            <h4><a href="javascript:;">海贼王</a></h4>
+            <span>播放:<em>28,276</em></span>
+          </li>
+          <li>
+            <a href="javascript:;"><img src="img/01.jpg" alt="海贼王" /></a>
+            <h4><a href="javascript:;">海贼王</a></h4>
+            <span>播放:<em>28,276</em></span>
+          </li>
+          <!-- 哆啦A梦 -->
+          <li>
+            <a href="javascript:;"><img src="img/02.jpg" alt="哆啦A梦" /></a>
+            <h4><a href="javascript:;">哆啦A梦</a></h4>
+            <span>播放:</span><em>33,326</em>
+          </li>
+          <li>
+            <a href="javascript:;"><img src="img/02.jpg" alt="哆啦A梦" /></a>
+            <h4><a href="javascript:;">哆啦A梦</a></h4>
+            <span>播放:</span><em>33,326</em>
+          </li>
+          <li>
+            <a href="javascript:;"><img src="img/02.jpg" alt="哆啦A梦" /></a>
+            <h4><a href="javascript:;">哆啦A梦</a></h4>
+            <span>播放:</span><em>33,326</em>
+          </li>
+          <li>
+            <a href="javascript:;"><img src="img/02.jpg" alt="哆啦A梦" /></a>
+            <h4><a href="javascript:;">哆啦A梦</a></h4>
+            <span>播放:</span><em>33,326</em>
+          </li>
+
+          <!-- 火影忍者 -->
+          <li>
+            <a href="javascript:;"><img src="img/03.jpg" alt="火影忍者" /></a>
+            <h4><a href="javascript:;">火影忍者</a></h4>
+            <span>播放:<em>28,276</em></span>
+          </li>
+          <li>
+            <a href="javascript:;"><img src="img/03.jpg" alt="火影忍者" /></a>
+            <h4><a href="javascript:;">火影忍者</a></h4>
+            <span>播放:<em>28,276</em></span>
+          </li>
+          <li>
+            <a href="javascript:;"><img src="img/03.jpg" alt="火影忍者" /></a>
+            <h4><a href="javascript:;">火影忍者</a></h4>
+            <span>播放:<em>28,276</em></span>
+          </li>
+          <li>
+            <a href="javascript:;"><img src="img/03.jpg" alt="火影忍者" /></a>
+            <h4><a href="javascript:;">火影忍者</a></h4>
+            <span>播放:<em>28,276</em></span>
+          </li>
+          <!-- 龙珠 -->
+          <li>
+            <a href="javascript:;"><img src="img/04.jpg" height="96" width="128" alt="哆啦A梦" /></a>
+            <h4><a href="javascript:;">哆啦A梦</a></h4>
+            <span>播放:<em>57,865</em></span>
+          </li>
+          <li>
+            <a href="javascript:;"><img src="img/04.jpg" alt="哆啦A梦" /></a>
+            <h4><a href="javascript:;">哆啦A梦</a></h4>
+            <span>播放:<em>57,865</em></span>
+          </li>
+          <li>
+            <a href="javascript:;"><img src="img/04.jpg" alt="哆啦A梦" /></a>
+            <h4><a href="javascript:;">哆啦A梦</a></h4>
+            <span>播放:<em>57,865</em></span>
+          </li>
+          <li>
+            <a href="javascript:;"><img src="img/04.jpg" alt="哆啦A梦" /></a>
+            <h4><a href="javascript:;">哆啦A梦</a></h4>
+            <span>播放:<em>57,865</em></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

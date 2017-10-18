@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>4.1.6-2 移除按钮元素上其中一个事件</title>
+  <script type="text/javascript" src="../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#btn").bind('click', myFun1=function(event) {
+        $("#test").append('<p>我的绑定函数1</p>');
+      }).bind('click', myFun2=function(event) {
+        $("#test").append('<p>我的绑定函数2</p>');
+      }).bind('click', myFun3=function(event) {
+        $("#test").append('<p>我的绑定函数3</p>');
+      });
+
+      // 点击“#dleAll”删除#btn元素的所有click事件
+      $("#delAll").click(function(event) {
+        $("#btn").unbind('click',myFun2); 
+      });
+
+      // 使用unbind()方法，语法结构：
+      // unbind([type],[data]);
+      // 第一个参数是事件类型，第二个参数是要移除的函数
+      // （1）若没有参数，删除所有绑定事件
+      // （2）若提供了事件类型作为参数，则只删除该类型的绑定事件
+      // （3）若都传递，则只有这个特定的事件处理函数会被删除
+    });
+  </script>
+</head>
+<body>
+  <button id="btn">点击我</button>
+  <div id="test"></div>
+  <br />
+  <button id="delAll">删除第二个事件</button>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>4.1.5-4 事件对象的属性event.target</title>
+  <!-- 引入jQuery -->
+  <script type="text/javascript" src="../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+   $("a[href='http://google.com']").click(function(event) {
+      // event.target的作用是获取到触发事件的元素
+     var tg = event.target;  //获取事件对象
+     alert(tg.href);  //http://google.com
+     return false;  //阻止链接跳转
+
+     // 5)event.relatedTarget:获取到触发事件的相关元素
+   });
+  });
+  </script>
+</head>
+<body>
+  <a href='http://google.com'>click me .</a>
+</body>
+</html>

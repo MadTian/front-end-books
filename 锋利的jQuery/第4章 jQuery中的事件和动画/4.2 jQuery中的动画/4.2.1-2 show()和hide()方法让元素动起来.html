@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>4.2.1-2 show()和hide()方法让元素动起来</title>
+  <style type="text/css">
+    *{margin:0;padding:0;}  
+    body { font-size: 13px; line-height: 130%; padding: 60px }
+    #panel { width: 300px; border: 1px solid #0050D0 }
+    .head { height:24px;line-height:24px;text-indent:10px;background: #96E555; cursor: pointer;width:100%; }
+    .content { padding: 10px; text-indent:24px; border-top: 1px solid #0050D0;display:block; }
+  </style>
+
+  <script type="text/javascript" src="../scripts/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  // show()和hide()方法在不带任何参数的情况下，相当于css("display","none/block/inline");
+  // 作用是立即隐藏或显示匹配的元素，不会有任何动画。
+  
+  // 如果希望在调用show()方法时，元素慢慢地显示出来，可以为show()方法指定一个速度参数
+  $("#panel h5.head").hover(function() {
+    $(this).next().hide("slow");  //hide()方法会同时减少“内容”的高度、宽度和不透明度，直至这3个属性的值都为0
+  }, function() {
+    $(this).next().show(600);  //show()方法则会从上到下增大其高度，从左到右增大其宽度，同时增加其不透明度，直至新闻内容完全显示
+  });
+
+});
+</script>
+
+</head>
+<body>
+  <div id="panel">
+    <h5 class="head">什么是jQuery?</h5>
+    <div class="content">
+      jQuery是继Prototype之后又一个优秀的JavaScript库，它是一个由 John Resig 创建于2006年1月的开源项目。jQuery凭借简洁的语法和跨平台的兼容性，极大地简化了JavaScript开发人员遍历HTML文档、操作DOM、处理事件、执行动画和开发Ajax。它独特而又优雅的代码风格改变了JavaScript程序员的设计思路和编写程序的方式。
+    </div>
+  </div>
+</body>
+</html>
