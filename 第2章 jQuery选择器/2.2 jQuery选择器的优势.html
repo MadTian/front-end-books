@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>2.2 jQuery选择器的优势</title>
+  <script src="scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      // 1.简洁的写法 $()函数
+      // 2.支持CSS1到CSS3选择器，无需考虑主流浏览器是否支持这些选择器
+      // 3.完善的处理机制
+      // $('#tt').css('color', 'red');  //无需判断$('#tt')是否存在
+
+      // 需要注意的是，
+      // $('#tt')获取的永远是对象，即使网页上没有此元素。
+      // 因此要用jQuery检查某个元素在网页上是否存在时，不能使用以下代码：
+      /*if($('tt')) {
+        $('body').css('backgroundColor', 'blue');
+      }*/
+
+      // 应该根据获取到元素的长度来判断：
+      if( $('tt').length > 0 ) {
+        $('body').css('backgroundColor', 'red');
+      }
+
+      // 或者转成DOM对象来判断：
+      if( $('tt')[0] ) {
+        $('body').css('backgroundColor', 'yellow');
+      }
+    });
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
