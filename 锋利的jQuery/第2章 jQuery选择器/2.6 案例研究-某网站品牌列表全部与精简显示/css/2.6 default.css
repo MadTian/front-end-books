@@ -1,0 +1,47 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body {
+  text-align: center;
+  font-size: 12px;
+}
+a {
+  color:#04D;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  color:#F50;
+}
+.subCategoryBox {
+  width: 600px;
+  margin: 40px auto;
+}
+.subCategoryBox ul {
+  width: 100%;
+}
+.subCategoryBox ul li {
+  list-style: none;
+  float: left;
+  width: 200px;
+  line-height: 20px;
+}
+.subCategoryBox ul .promoted a {
+  color:#F50;
+}
+.subCategoryBox .showmore {
+  clear:both;
+  padding-top: 10px;
+}
+.subCategoryBox .showmore a {
+  display: block;
+  width: 120px;
+  border: 1px solid #aaa;
+  margin: 0 auto;
+  line-height: 24px;
+}
+.subCategoryBox .showmore a span {
+  background: url(../img/down.gif) 0 0 no-repeat;
+  padding-left: 15px;
+}

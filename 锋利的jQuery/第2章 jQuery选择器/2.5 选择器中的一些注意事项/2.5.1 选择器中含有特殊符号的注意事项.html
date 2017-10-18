@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>2.5.1 选择器中含有特殊符号的注意事项</title>
+  <!-- 引入jQuery -->
+  <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      // 1.选择器中含有"."、"#"、"("或"]"等特殊字符
+      // 解决方法：转义字符
+      var $bb = $("#id\\#b");
+      alert( $bb.html() );  //bb
+
+      var $cc = $("#id\\[1\\]");
+      alert( $cc.html() );  //cc
+    });
+  </script>
+</head>
+<body>
+  <!-- 1.选择器中含有"."、"#"、"("或"]"等特殊字符 -->
+  <div id="id#b">bb</div>
+  <div id="id[1]">cc</div>
+</body>
+</html>
