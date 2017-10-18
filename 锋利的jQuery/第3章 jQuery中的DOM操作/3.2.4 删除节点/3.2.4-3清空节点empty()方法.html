@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>3.2.4-3 清空节点empty()方法</title>
+  <script type="text/javascript" src="../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+      // empty()能清空元素中的所有后代节点
+      $("ul li:eq(1)").empty();  //获取第2个li元素节点后，清空此元素里的内容，注意是元素里
+    });
+  </script>
+</head>
+<body>
+  <p title="选择你最喜欢的水果">选择你最喜欢的水果？</p>
+  <ul>
+    <li title="apple">苹果</li>
+    <li title="orange">橘子</li>
+    <li title="菠萝">菠萝</li>
+  </ul>
+</body>
+</html>

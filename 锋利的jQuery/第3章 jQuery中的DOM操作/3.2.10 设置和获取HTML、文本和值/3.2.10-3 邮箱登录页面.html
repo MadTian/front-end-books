@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>3.2.10 val()方法实现邮箱登录页面提示功能切换</title>
+  <style type="text/css">
+    p>input[value]{
+      color:grey;
+    }
+  </style>
+  <script type="text/javascript" src="../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      // 当地址框获取焦点时，如其中的值为“请输入邮箱地址”，
+      // 则将地址框中的值清空
+      $("#address").focus(function(event) {
+        var txt_value = $(this).val();
+        if(txt_value=="请输入邮箱地址") {
+          $(this).val("");
+        }
+      });
+
+      // 当地址框失去焦点时，如果地址框的值为空，则将地址框的值设置为“请输入邮箱地址”
+      $("#address").blur(function(event) {
+        var txt_value = $(this).val();
+        if(txt_value=="") {
+          $(this).val("请输入邮箱地址");
+        }
+      });
+
+      // 密码框同上
+      // 当密码框获取焦点时，如其中的值为“请输入邮箱地址”，
+      // 则将密码框中的值清空
+      // $("#passWord").focus(function(event) {
+      //   var txt_value = $(this).val();
+      //   if(txt_value=="请输入邮箱密码") {
+      //     $(this).val("");
+      //   }
+      // });
+
+      // 当密码框失去焦点时，如果密码框的值为空，则将密码框的值设置为“请输入邮箱密码”
+      // $("#passWord").blur(function(event) {
+      //   var txt_value = $(this).val();
+      //   if(txt_value=="") {
+      //     $(this).val("请输入邮箱密码");
+      //   }
+      // });
+
+      // defaultValue属性包含该表单元素的初始值
+      // 获取焦点时
+       $("#passWord").focus(function(event) {
+        var txt_value = $(this).val();
+        if(txt_value==this.defaultValue) {
+          $(this).val("");
+        }
+      });
+
+      // 失去焦点时
+      $("#passWord").blur(function(event) {
+        var txt_value = $(this).val();
+        if(txt_value=="") {
+          $(this).val(this.defaultValue);
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <p>
+    <input type="text" id="address" value="请输入邮箱地址" />
+  </p>
+  <p>
+    <input type="text" id="passWord" value="请输入邮箱密码" />
+  </p>
+  <input type="button" value="登录" />
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>3.3 超链接提示效果</title>
+  <style type="text/css">
+    body{
+      margin:0;
+      padding:40px;
+      background:#fff;
+      font:80% Arial, Helvetica, sans-serif;
+      color:#555;
+      line-height:180%;
+    }
+    p{
+      clear:both;
+      margin:0;
+      padding:.5em 0;
+    }
+    /* tooltip */
+    #tooltip{
+      position:absolute;
+      border:1px solid skyblue;
+      background:#f7f5d1;
+      padding:1px;
+      color:#333;
+      display:none;
+    }
+  </style>
+  <script type="text/javascript" src="../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      // 自带的提示效果的响应速度非常缓慢，考虑到良好的人机交互，需要的是当鼠标移动到超链接的那一瞬间就出现提示
+      // 需要移除a标签身中的title提示效果，自己动手做一个类似功能的提示。
+      var x=10;
+      var y=20;
+      // 1）鼠标滑入超链接
+      $("a.tooltip").mouseover(function(event) {
+        this.myTitle = this.title;
+        this.title = "";
+        // ①创建一个div元素，其内容为title属性的值
+        var tooltip = "<div id='tooltip'>" + this.myTitle + "</div>";
+        var e = event || window.event;
+        // ②将创建的元素追加到文档中
+        $("body").append(tooltip);
+
+        $("#tooltip")
+          .css({
+            'top': (e.pageY+y) +'px',  //自制的提示与鼠标的距离太近，有时会无法提示
+            'left': (e.pageX+x) +'px'  //x,y多增加几px
+          }).show('fast');
+      }).mouseout(function(event) {
+        this.title = this.myTitle;
+        $("#tooltip").remove();  // 2）鼠标滑出超链接时，移除div元素
+      }).mousemove(function(event) {
+        var e = event || window.event;
+        $("#tooltip")  //提示效果跟随鼠标一起移动
+          .css({
+            'top': (e.pageY+y) +'px',  //自制的提示与鼠标的距离太近，有时会无法提示
+            'left': (e.pageX+x) +'px'  //x,y多增加几px
+        });
+      });;
+
+      
+    });
+  </script>
+</head>
+<body>
+  <p><a href="#" class="tooltip" title="这是我的超链接提示1.">提示1.</a></p>
+  <p><a href="#" class="tooltip" title="这是我的超链接提示2.">提示2.</a></p>
+  <p><a href="#" title="这是自带提示1">自带提示1.</a></p>
+  <p><a href="#" title="这是自带提示2">自带提示2.</a></p>
+</body>
+</html>

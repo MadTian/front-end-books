@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>3.2.7 包裹节点wrapAll()方法</title>
+  <script type="text/javascript" src="../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+      // wrap()方法是将所有的元素进行单独的包裹
+      // $('strong').wrap('<b></b>');
+
+      // wrapAll()方法会将所有匹配的元素用一个元素包裹
+      $('strong').wrapAll('<b></b>');
+
+    });
+  </script>
+</head>
+<body>
+  <strong title="选择你最喜欢的水果">选择你最喜欢的水果？</strong>
+  <strong title="选择你最喜欢的水果">选择你最喜欢的水果？</strong>
+  <ul>
+    <li title="apple">苹果</li>
+    <li title="orange">橘子</li>
+    <li title="菠萝">菠萝</li>
+  </ul>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>3.2.3-1 插入节点</title>
+  <script type="text/javascript" src="scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+      // 创建新元素并对其进行插入操作
+      var $li_1 = $("<li title='香蕉'>香蕉</li>");  //创建第1个<li>元素
+      var $li_2 = $("<li title='雪梨'>雪梨</li>");  //创建第1个<li>元素
+      var $li_3 = $("<li title='其它'>其它</li>");  //创建第1个<li>元素
+
+      var $secondLi = $("ul li:eq(1)");  //获取ul节点中的第2个li元素节点
+      $secondLi.after($li_3);  //将创建的第3个li元素插入到获取到的li元素之后
+      $("ul").append($li_1);  //将创建的第1个li元素插入到父元素的最后面
+      $("ul").prepend($li_2);  //将创建的第2个li元素插入到父元素的最前面
+
+    });
+  </script>
+</head>
+<body>
+  <p title="选择你最喜欢的水果">选择你最喜欢的水果？</p>
+  <ul>
+    <li title="apple">苹果</li>
+    <li title="orange">橘子</li>
+    <li title="pineapple">菠萝</li>
+  </ul>
+</body>
+</html>

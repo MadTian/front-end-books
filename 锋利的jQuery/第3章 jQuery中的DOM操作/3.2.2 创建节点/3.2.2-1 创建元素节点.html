@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>3.2.2-1 创建元素节点</title>
+  <script type="text/javascript" src="scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+      // 要求：
+      // 创建两个li元素节点，并把它们作为ul元素节点的子节点添加到DOM节点树上。
+
+      // 1-创建两个<li>元素
+      var $li_1 = $("<li></li>");  //创建第1个<li>元素 <li/>或<Li/>亦可
+      var $li_2 = $("<li></li>");  //创建第1个<li>元素
+
+      // 2-将这两个新元素插入文档中 append()方法
+      $("ul").append($li_1).append($li_2);
+
+    });
+  </script>
+</head>
+<body>
+  <p title="选择你最喜欢的水果">选择你最喜欢的水果？</p>
+  <ul>
+    <li title="apple">苹果</li>
+    <li title="orange">橘子</li>
+    <li title="pineapple">菠萝</li>
+  </ul>
+</body>
+</html>

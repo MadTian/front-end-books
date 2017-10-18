@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>3.2.4-1 删除节点detach()方法</title>
+  <script type="text/javascript" src="../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+      $("ul li").click(function(event) {
+        alert( $(this).html() );
+      });
+
+      var $li = $("ul li:eq(1)").detach();  //删除元素
+      $li.appendTo('ul');  //重新追加此元素，发现它之前绑定的事件还在
+
+      // 如果使用remove()方法删除元素的话，那么它之前绑定的事件将失效
+      var $li = $("ul li:eq(1)").remove();  //删除元素
+      $li.prependTo('ul');
+    });
+  </script>
+</head>
+<body>
+  <p title="选择你最喜欢的水果">选择你最喜欢的水果？</p>
+  <ul>
+    <li title="apple">苹果</li>
+    <li title="orange">橘子</li>
+    <li title="菠萝">菠萝</li>
+  </ul>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>3.2.10 获取和设置HTML、文本和值</title>
+  <script type="text/javascript" src="../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+      // 获取p元素的HTML代码
+      // html()类似于JS中的innerHTML属性可以用来读取或者设置某个元素中的HTML内容
+      $("input:eq(0)").click(function(event) {
+        alert( $("p").html() );  //<strong>你最喜欢的水果是?
+      });
+
+      // 获取<p>元素的文本
+      // text()方法类似于JS中的innerText属性用来读取或设置某个元素中的文本内容
+      $("input:eq(1)").click(function(event) {
+        alert( $('p').text() );  //你最喜欢的水果是?
+      });
+
+      // 设置<p>元素的HTML代码
+      $("input:eq(2)").click(function(event) {
+        $("p").html("<strong>你最不喜欢吃什么水果？</strong>");
+      });
+
+      // 设置<p>元素的文本
+      $("input:eq(3)").click(function(event) {
+        $("p").text("再也不要吃这些水果了！");
+      });
+
+      // 设置<p>元素的文本(带HTML)
+      $("input:eq(4)").click(function(){
+       $("p").text("<strong>你最喜欢的水果是?</strong>");
+      });
+
+      // 获取按钮的value值
+      // val()方法设置和获取元素的值
+      $("input:eq(5)").click(function(event) {
+        alert( $(this).val() );
+      });
+
+      // 设置按钮的value值
+      $("input:eq(6)").click(function(event) {
+        alert( $(this).val('我被点击了!') );
+      });
+    });
+  </script>
+</head>
+<body>
+  <input type="button" value="获取<p>元素的HTML代码"/>
+  <input type="button" value="获取<p>元素的文本"/>
+  <input type="button" value="设置<p>元素的HTML代码"/>
+  <input type="button" value="设置<p>元素的文本"/>
+  <input type="button" value="设置<p>元素的文本(带HTML)"/>
+  <input type="button" value="获取按钮的value值"/>
+  <input type="button" value="设置按钮的value值"/>
+
+  <p title="选择你最喜欢的水果." ><strong>你最喜欢的水果是?</strong></p>
+  <ul>
+    <li title='苹果'>苹果</li>
+    <li title='橘子'>橘子</li>
+    <li title='菠萝'>菠萝</li>
+  </ul>
+</body>
+</html>

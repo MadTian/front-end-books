@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>3.1 DOM操作的分类</title>
+</head>
+<body>
+  <!-- 1.DOM Core 任何一种支持DOM的程序设计语言都可以使用它。
+  JS中的getElementById()、getElementsByTagName()、getAttribute()和setAttribute()等都是其组成部分 -->
+
+  <!-- 使用DOM Core来获取表单对象的方法 -->
+  document.getElementsByTagName("form");
+
+  <!-- 使用DOM Core来获取某元素的src属性的方法 -->
+  element.getAttribute("src");
+
+  <!-- 2.HTML-DOM 出现早于DOM Core
+  提供了一些更简明的记号来描述各种HTML元素的属性 -->
+
+  <!-- 使用HTML-DOM来获取表单对象的方法 -->
+  document.forms  //HTML-DOM提供了一个forms对象
+
+  <!-- 使用HTML-DOM来获取某元素的src属性的方法 -->
+  element.src; 
+
+  <!-- 3.CSS-DOM 主要作用：获取和设置style对象的各种属性-->
+
+  <!-- 设置某元素style对象字体颜色的方法 -->
+  element.style.color = "red";
+</body>
+</html>

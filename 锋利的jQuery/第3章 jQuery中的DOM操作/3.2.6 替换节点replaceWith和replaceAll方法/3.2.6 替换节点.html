@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>3.2.6 替换节点</title>
+  <script type="text/javascript" src="../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+      // replaceWith()方法将所匹配的元素都替换成指定的HTML或者DOM元素
+      $("p").replaceWith('<strong>你最不喜欢的水果是？</strong>');
+      
+      // replaceAll()方法用指定的HTML或者DOM元素替换所匹配的所有元素
+      $('<em>你最不喜欢的水果是？</em>').replaceAll('p');
+    });
+  </script>
+</head>
+<body>
+  <p title="选择你最喜欢的水果">选择你最喜欢的水果？</p>
+  <ul>
+    <li title="apple">苹果</li>
+    <li title="orange">橘子</li>
+    <li title="菠萝">菠萝</li>
+  </ul>
+</body>
+</html>

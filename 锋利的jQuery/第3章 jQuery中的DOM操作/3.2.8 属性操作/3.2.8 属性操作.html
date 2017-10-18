@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>3.2.8 属性操作</title>
+  <script type="text/javascript" src="../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+      // 1.获取属性和设置属性
+      var $para = $("p");  //获取p节点
+      var p_text = $para.attr("title");  //获取p元素节点属性title
+      // alert(p_text);  //选择你最喜欢的水果
+
+      $("p").attr('title', '你最喜欢的水果请选择');
+      var p_text = $para.attr("title");  //获取p元素节点属性title
+
+      // 如果需要一次性为同一个元素设置多个属性
+      $("strong").attr({
+        "title": '最喜欢',
+        "name": 'test'   //将一个"名/值"形式的对象设置为匹配元素的属性
+      });
+
+      // 2.删除属性 removeAttr()
+      $("p").removeAttr('title');
+      
+
+    });
+  </script>
+</head>
+<body>
+  <p title="选择你最喜欢的水果">选择你最喜欢的水果？</p>
+  <strong title="选择你最喜欢的水果">选择你最喜欢的水果？</strong>
+  <ul>
+    <li title="apple">苹果</li>
+    <li title="orange">橘子</li>
+    <li title="菠萝">菠萝</li>
+  </ul>
+</body>
+</html>

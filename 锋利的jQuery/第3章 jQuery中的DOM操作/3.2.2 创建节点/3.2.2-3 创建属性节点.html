@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>3.2.2-3 创建属性节点</title>
+  <script type="text/javascript" src="scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+      // 要求：
+      // 创建两个li元素节点，并把它们作为ul元素节点的子节点添加到DOM节点树上。
+
+      // 1-创建两个<li>元素
+      // 创建文本节点就是在创建元素节点时直接把文本内容写出来
+      // 创建属性节点也是直接在创建元素节点时一起创建
+      var $li_1 = $("<li title='香蕉'>香蕉</li>");  //创建第1个<li>元素 包括元素节点、文本节点和属性节点 其中title='香蕉'就是属性节点
+
+      var $li_2 = $("<li title='雪梨'>雪梨</li>");  //创建第1个<li>元素 "雪梨"就是文本节点
+
+      // 2-将这两个新元素插入文档中 append()方法
+      $("ul").append($li_1).append($li_2);
+
+      //注意：无论$(html)中的HTML代码多么复杂，都可以使用相同的方式创建
+      var $li_3 = $("<li><em>这是</em><b>一个</b>复杂的组合</li>");
+      $("ul").append($li_3);
+
+    });
+  </script>
+</head>
+<body>
+  <p title="选择你最喜欢的水果">选择你最喜欢的水果？</p>
+  <ul>
+    <li title="apple">苹果</li>
+    <li title="orange">橘子</li>
+    <li title="pineapple">菠萝</li>
+  </ul>
+</body>
+</html>

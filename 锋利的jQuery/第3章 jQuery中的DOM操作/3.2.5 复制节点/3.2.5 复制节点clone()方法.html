@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>3.2.5 复制节点clone()方法</title>
+  <script type="text/javascript" src="../scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+      $("ul li").click(function(event) {
+        // $(this).clone().appendTo('ul');  //复制当前点击的节点，并将它追加到ul元素中
+        $(this).clone(true).appendTo('ul');  //传递参数true 复制元素的同时复制元素中所绑定的事件
+        
+      });
+    });
+  </script>
+</head>
+<body>
+  <p title="选择你最喜欢的水果">选择你最喜欢的水果？</p>
+  <ul>
+    <li title="apple">苹果</li>
+    <li title="orange">橘子</li>
+    <li title="菠萝">菠萝</li>
+  </ul>
+</body>
+</html>
