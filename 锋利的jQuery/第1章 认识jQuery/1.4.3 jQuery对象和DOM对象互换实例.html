@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>1.4.3 jQuery对象和DOM对象互换实例</title>
+  <script type="text/javascript" src="scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+   /*$(function() {
+      
+    });*/
+    // 用DOM方式来判断复选框是否被选中
+    /*$(document).ready(function() {
+      
+      var $cr = $('#cr');
+
+      // jQuery对象转成DOM对象的两种方法：
+      // var cr = $cr[0];
+      var cr = $cr.get(0);
+
+      $cr.click(function(event) {
+
+        if(cr.checked) {  //DOM方式判断
+          alert("感谢你的支持!你可以继续操作");
+        }
+
+      });
+
+    });*/
+
+    // 用jQuery中的方法判断选项是否被选中
+    $(document).ready(function() {
+      var $cr = $('#cr');
+      $cr.click(function(event) {
+        if($cr.is(':checked')) {
+          alert('感谢你的支持!你可以继续操作le');
+        }
+      });
+    });
+
+  </script>
+</head>
+<body>
+  <input type="checkbox" id="cr" /><label for="cr">我已经阅读了上面的制度.</label>
+</body>
+</html>
